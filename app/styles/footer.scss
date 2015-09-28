@@ -1,0 +1,32 @@
+
+
+/*  footer  */
+footer {
+  position: static;
+  background: #414751;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 0;
+  height: 100px;
+
+  ul.social {
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+  }
+}
+
+
+

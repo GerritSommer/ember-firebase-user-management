@@ -1,0 +1,86 @@
+@import "reset";
+@import "fonts";
+@import "header";
+@import "footer";
+@import "login";
+// @import "buttons";
+@import "bower_components/font-awesome/scss/font-awesome";
+
+/*  General CSS  */
+body {
+  background: #fff;
+  margin: 0;
+  font-family: "raleway-regular", arial;
+  font-size: 16px;
+}
+
+// .clearfix:before, .clearfix:after, .row:before, .row:after {
+//   content: " ";
+//   display: table;
+// }
+
+// .clearfix:after, .row:after {
+//   clear: both;
+// }
+
+.clearfix {
+  *zoom: 1;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  color: #3a87ad;
+  text-decoration: none;
+  transition: .25s ease;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+
+  li {
+    font-size: 14px;
+    margin-left: 0.5em;
+  }
+
+}
+
+p {
+  color: #898d94;
+  font-family: "raleway-regular", arial;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+blockquote {
+  border-left: .2em solid #efefef;
+  font-style: italic;
+}
+
+
+[data-ember-action] {
+  cursor: pointer;
+}
+
+.inline {
+  display: inline-block;
+}
+
+input {
+  padding: 6px 4px;
+}
