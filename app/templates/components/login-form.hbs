@@ -1,0 +1,30 @@
+
+{{#if loggedIn}}
+  Logged in as {{session.currentUser.displayName}}
+  <a {{action "logout"}}>Sign out</a>
+{{else}}
+  <a {{action "openLogin"}}>Sign in</a>
+
+  <div class="login-dropdown {{dropdownState}}">
+
+  <form>
+    {{input value=email placeholder="email" disabled=isAuthenticating}}
+    {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
+    <button {{action "login"}} disabled={{isAuthenticating}}>
+      {{#if isAuthenticating}}
+        <i class="fa fa-refresh fa-spin"></i>
+      {{else}}
+        login
+      {{/if}}
+    </button>
+  </form>
+
+</div>
+{{/if}}
+
+<div>
+  {{currentUser.currentUser}}
+</div>
+
+{{yield}}
+

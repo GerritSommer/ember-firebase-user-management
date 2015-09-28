@@ -1,0 +1,61 @@
+.login-container {
+  position: relative;
+
+
+  .login-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 0;
+
+    max-height: 0;
+
+    overflow-y: hidden;
+    background: #fff;
+
+    transition: max-height 400ms ease-out;
+
+
+    &.open {
+      max-height: 500px;
+    }
+
+    form {
+      border: 2px solid #bbb;
+      border-radius: 4px;
+      padding: 10px 20px;
+      // background: #3a87ad;
+      // background: 0 1px rgba(255, 255, 255, 0.75);
+      // background: #72A26E;
+      background: #efefef;
+    }
+
+    input {
+      display: block;
+      padding: 4px 6px;
+      margin-bottom: 5px;
+      background: white;
+    border: 2px solid #ebebeb;
+    border-radius: 4px;
+    font-size: 13px;
+
+    }
+
+    button {
+      margin-top: 5px;
+      background: #f0776c;
+      color: white;
+      border: 0;
+      border-radius: 3px;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+      background: #2ECC71;
+      cursor: pointer;
+      // box-shadow: inset 0 -2px #d76b60;
+      font-size: 13px;
+      width: 100%;
+    }
+
+  }
+
+}
+
