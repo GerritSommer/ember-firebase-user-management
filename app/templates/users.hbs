@@ -1,1 +1,26 @@
+  <div class="users-index">
+    <div class="toolbar">
+      {{#link-to 'users.new'}}
+        new User
+      {{/link-to}}
+    </div>
+
+    <div class="list-body">
+
+      {{#each model as |user|}}
+        {{#unless user.isNew}}
+          <div class="user-list-item">
+            {{#link-to 'user.index' user}}
+              {{user.fullName}}
+            {{/link-to}}
+            - {{user.email}}
+          </div>
+        {{/unless}}
+      {{/each}}
+
+
+    </div>
+
+  </div>
+
 {{outlet}}

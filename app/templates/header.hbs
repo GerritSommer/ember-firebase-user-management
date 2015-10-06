@@ -4,29 +4,26 @@
     <div class="col col-3">
       {{#link-to 'index'}}
         {{!-- <img src="assets/images/logo.png" class="logo"/> --}}
-        <span class="logo"><h2>sommer</h2></span>
+        {{!-- <span class="logo"><h2>sommer</h2></span> --}}
       {{/link-to}}
     </div>
-
 
     <nav class="col">
       <ul>
         <li>
           {{#link-to 'index'}} Home {{/link-to}}
         </li>
-{{!--         <li>
-          {{#link-to 'articles'}} Article {{/link-to}}
-        </li> --}}
-        {{!-- <li><a href="about.html">drunter</a></li>
-        <li><a href="services.html">drüber</a></li>
-        <li><a href="work.html">links</a></li>
-        <li><a href="#">rechts</a></li> --}}
-        <li>
-          {{login-form session=session signIn="signIn" signOut="signOut" store=store}}
-        </li>
+        {{#if authentication.isLoggedIn}}
+          <li>
+            {{#link-to 'users'}} Users {{/link-to}}
+          </li>
+        {{/if}}
+
       </ul>
       <i class="fa fa-bars"></i>
     </nav>
 
   </div>
+
+  {{login-form authentication=authentication}}
 </header>
