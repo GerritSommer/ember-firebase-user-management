@@ -3,6 +3,15 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    autoprefixer: {
+      browers: [
+        'Firefox >= 20',
+        'Chrome >= 25',
+        'iOS >= 7',
+        'Android >= 4',
+        'ie >= 9'
+      ]
+    }
     // Add options here
   });
 
