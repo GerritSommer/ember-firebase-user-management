@@ -1,30 +1,43 @@
+{{#if isLoggedIn}}
 
-{{#if loggedIn}}
-  Logged in as {{session.currentUser.displayName}}
-  <a {{action "logout"}}>Sign out</a>
+<div class="profile">
+  <span {{action 'toggleProfile'}} class="profile-toggle">
+    {{gravatar-image
+      email=authentication.currentUser.email
+      title=authentication.currentUser.fullName
+      defaultImage='mm'
+      class='img-circle'
+      secure=false
+      size=25
+    }}
+  </span>
+
+  <div class="profile-dropdown {{showProfile}}">
+    Logged in as {{authentication.currentUser.fullName}} <br>
+    <a {{action "logout"}}>Sign out</a>
+  </div>
+
+</div>
+
 {{else}}
-  <a {{action "openLogin"}}>Sign in</a>
+  <a {{action "toggleLogin"}}>Sign in</a>
 
-  <div class="login-dropdown {{dropdownState}}">
+  <div class="login-dropdown {{showLogin}}">
 
-  <form>
-    {{input value=email placeholder="email" disabled=isAuthenticating}}
-    {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
-    <button {{action "login"}} disabled={{isAuthenticating}}>
-      {{#if isAuthenticating}}
-        <i class="fa fa-refresh fa-spin"></i>
-      {{else}}
-        login
-      {{/if}}
-    </button>
-  </form>
+    <form>
+      {{input value=email placeholder="email" disabled=isAuthenticating}}
+      {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
+      <button {{action "login"}} disabled={{isAuthenticating}}>
+        {{#if isAuthenticating}}
+          <i class="fa fa-refresh fa-spin"></i>
+        {{else}}
+          login
+        {{/if}}
+      </button>
+    </form>
 
-</div>
+  </div>
 {{/if}}
-
-<div>
-  {{currentUser.currentUser}}
-</div>
 
 {{yield}}
 

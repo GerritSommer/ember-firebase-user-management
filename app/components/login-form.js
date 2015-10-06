@@ -5,50 +5,25 @@ export default Ember.Component.extend({
   tagName:          'div',
   classNames:       [ 'login-container' ],
 
-  open:             false,
+  loginOpen:        false,
+  profileOpen:      false,
   email:            null,
   password:         null,
-  isAuthenticating: false,
 
-  firebase: Ember.inject.service(),
+  authentication:   Ember.inject.service(),
 
-  currentUser: Ember.inject.service('currentUser'),
+  isAuthenticating: Ember.computed('authentication.isAuthenticating', function() { return this.get('authentication.isAuthenticating') }),
+  isLoggedIn:         Ember.computed.bool('authentication.isLoggedIn'),
 
-  loggedIn: Ember.computed.bool('session.isAuthenticated'),
-
-  dropdownState: Ember.computed('open', function() { if (this.get('open')) return 'open'; }),
+  showLogin:        Ember.computed('loginOpen', function() { if (this.get('loginOpen')) return 'open'; }),
+  showProfile:      Ember.computed('profileOpen', function() { if (this.get('profileOpen')) return 'open'; }),
 
   actions: {
-    login: function() {
-      this.set('isAuthenticating', true);
-       this.get("session").open("firebase", {
-        provider: 'password',
-        email:    this.get('email'),
-        password: this.get('password')
-      })
-      .then((data)=> {
-        this.store.findQuery('user', { uid: data.uid }).then(function(user) {
-          this.get('session').set('user', user)
-          this.set('open', false);
-        });
-      })
-      .catch(function() {
-        return null
-      })
-      .finally(()=> {
-        this.set('isAuthenticating', false);
-      });
+    login: function()  { this.get('authentication').login(this.get('email'), this.get('password')); },
+    logout: function() { this.get('authentication').logout(); },
 
-    },
-
-    logout: function() {
-      this.sendAction('signOut');
-    },
-
-    openLogin: function() {
-      this.toggleProperty('open');
-    }
-
+    toggleLogin: function()   { this.toggleProperty('loginOpen'); },
+    toggleProfile: function() { this.toggleProperty('profileOpen'); }
   }
 
 });

@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'fire',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com", 'img-src': "'self' http://www.gravatar.com/"  },
     firebase: 'https://scorching-torch-4275.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'

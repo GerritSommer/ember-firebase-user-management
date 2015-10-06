@@ -1,26 +1,16 @@
 // app/routes/application.js
 import Ember from 'ember';
 
+var uid
+
 export default Ember.Route.extend({
-  beforeModel: function() {
-    return this.get("session").fetch().catch(function() {});
-  },
 
-  actions: {
-    signIn: function(email, password) {
-      this.get("session").open("firebase", {
-        provider: 'password',
-        email:    email,
-        password: password
-      }).then(function(data) {
-        console.log(data.currentUser);
-      });
-    },
+  // onSession: function() {
+  //   if (uid = this.get('session.uid')) {
+  //     this.store.findQuery('user', { uid: uid }).then((users)=> {
+  //       this.get('session').set('userObject', users.get('firstObject'))
+  //     });
+  //   }
+  // }.observes('session.uid'),
 
-    signOut: function() {
-      console.log('test');
-      this.get("session").close();
-    }
-
-  }
 });
