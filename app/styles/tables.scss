@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: table;
+  margin: 1em 0;
+
+  thead {
+    text-align: left;
+  }
+
+  tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    width: 100%;
+
+  }
+
+  tr {
+    display: table-row;
+
+    th, td {
+      padding: 0.5em;
+    }
+
+    th {
+      border-bottom: 2px solid #efefef;
+    }
+
+    td {
+      border-bottom: 1px solid #efefef;
+    }
+  }
+}

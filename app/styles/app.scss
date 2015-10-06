@@ -2,6 +2,9 @@
 @import "fonts";
 @import "header";
 @import "footer";
+@import "forms";
+@import "tables";
+@import "users";
 @import "login";
 // @import "buttons";
 @import "bower_components/font-awesome/scss/font-awesome";
@@ -14,6 +17,12 @@ body {
   font-size: 16px;
 }
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 // .clearfix:before, .clearfix:after, .row:before, .row:after {
 //   content: " ";
 //   display: table;
@@ -22,6 +31,10 @@ body {
 // .clearfix:after, .row:after {
 //   clear: both;
 // }
+
+.main-panel {
+  margin: 2em;
+}
 
 .clearfix {
   *zoom: 1;

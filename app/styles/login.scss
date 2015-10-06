@@ -59,3 +59,33 @@
 
 }
 
+.profile {
+  position: relative;
+  // margin-top: -15px;
+  margin-bottom: -5px;
+
+  .profile-toggle {
+    position: absolute;
+    right:20px;
+    top: 30px;
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .profile-dropdown {
+    position: absolute;
+    max-height: 0;
+    right: 10px;
+    top: 65px;
+
+    overflow-y: hidden;
+    background: #fff;
+
+    &.open {
+      max-height: 500px;
+      width: 150px;
+      border: 1px solid #ccc;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.users-index {
+  .toolbar  {
+    background: #efefef;
+    text-align: right;
+    padding: 1em 0;
+    a {
+      margin-right: 2em;
+    }
+  }
+
+  .list-body {
+
+    .user-list-item {
+      padding: 0.5em;
+
+      &:hover {
+        background: #72a26e;
+        cursor: pointer;
+      }
+        border-bottom: 1px solid #efefef;
+    }
+
+  }
+}
