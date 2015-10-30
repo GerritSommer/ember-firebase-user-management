@@ -1,43 +1,56 @@
-{{#if isLoggedIn}}
 
-<div class="profile">
-  <span {{action 'toggleProfile'}} class="profile-toggle">
+<a {{action 'toggleDropdown'}} class="toggle {{if open 'active'}}">
+  {{#if isLoggedIn}}
     {{gravatar-image
       email=authentication.currentUser.email
       title=authentication.currentUser.fullName
       defaultImage='mm'
-      class='img-circle'
+      class='circle'
       secure=false
-      size=25
+      size=35
     }}
-  </span>
+  {{else}}
+    Sign in
+  {{/if}}
+</a>
 
-  <div class="profile-dropdown {{showProfile}}">
-    Logged in as {{authentication.currentUser.fullName}} <br>
-    <a {{action "logout"}}>Sign out</a>
+
+<div class="dropdown {{if open 'open'}}">
+
+  <div class="header">
+    Hello <strong>{{authentication.currentUser.fullName}}</strong>
   </div>
 
+  <div class="body">
+    {{#if isLoggedIn}}
+      <a href="">Settings</a>
+
+    {{else}}
+      <form>
+
+        {{input value=email placeholder="email" disabled=isAuthenticating}}
+        {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
+
+        <span class="fa-stack login-button">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          {{#if isAuthenticating}}
+            <i class="fa fa-refresh fa-spin fa-stack-1x inner-icon"></i>
+          {{else}}
+            <i class="fa fa-chevron-right fa-stack-1x inner-icon"></i>
+          {{/if}}
+        </span>
+
+      </form>
+
+  {{/if}}
+  </div>
+
+  {{#if isLoggedIn}}
+    <div class="footer">
+      <small><a {{action "logout"}} class="pull-right">Sign out</a></small>
+    </div>
+
+  {{/if}}
 </div>
 
-{{else}}
-  <a {{action "toggleLogin"}}>Sign in</a>
-
-  <div class="login-dropdown {{showLogin}}">
-
-    <form>
-      {{input value=email placeholder="email" disabled=isAuthenticating}}
-      {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
-      <button {{action "login"}} disabled={{isAuthenticating}}>
-        {{#if isAuthenticating}}
-          <i class="fa fa-refresh fa-spin"></i>
-        {{else}}
-          login
-        {{/if}}
-      </button>
-    </form>
-
-  </div>
-{{/if}}
-
 {{yield}}
-
