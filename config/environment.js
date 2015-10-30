@@ -4,7 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'fire',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com", 'img-src': "'self' http://www.gravatar.com/"  },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'img-src': "'self' http://www.gravatar.com/",
+      'style-src': "'self' 'localhost:4200'"
+    },
     firebase: 'https://scorching-torch-4275.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
@@ -23,6 +27,12 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+
+  // if (environment === 'production') {
+  // ENV['ember-cli-mirage'] = {
+  //     enabled: true
+  //   }
+  // }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
