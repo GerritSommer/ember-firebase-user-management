@@ -1,0 +1,44 @@
+$small-break: 480px !default;
+$medium-break: 800px !default;
+@mixin small() {
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+}
+
+@mixin medium() {
+  @media screen and (max-width: $medium-break) {
+    @content;
+  }
+}
+
+@mixin large() {
+  @media screen and (min-width: $small-break) {
+    @content;
+  }
+}
+
+.hide            { display: none; }
+.block           { display: block; }
+.flex            { display: flex; }
+.inline          { display: inline-block; }
+.inline-flex     { display: inline-flex; }
+
+.overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto   { overflow: auto; }
+
+.hide-on-small   { @include small {  display: none !important; }}
+.hide-on-medium  { @include medium { display: none !important; }}
+.hide-on-large   { @include large {  display: none !important; }}
+.cursor-pointer  { cursor: pointer; }
+
+.relative        { position: relative; }
+.absolute        { position: absolute; }
+.fixed           { position: fixed; }
+
+.pull-left  { float: left; }
+.pull-right { float: right; }
+
+.text-right { text-align: right; }
+.text-left  { text-align: left; }

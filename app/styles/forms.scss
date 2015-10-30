@@ -1,3 +1,104 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content }
+  &:-moz-placeholder           { @content }
+  &::-moz-placeholder          { @content }
+  &:-ms-input-placeholder      { @content }
+}
+
 input {
-  margin: 5px 0;
+  padding: 6px 4px;
+}
+
+form {
+  padding: 1em 0;
+}
+
+fieldset {
+
+  legend {
+    font-weight: bolder;
+    margin-bottom: 1em;
+  }
+}
+
+label {
+
+  span.label {
+    width: 10%;
+    min-width: 120px;
+    display: inline-block;
+  }
+
+  .errors {
+      transition: color 400ms ease-in;
+      color: #db716f;
+    }
+
+  &.invalid input {
+    border: 1px solid #db716f;
+  }
+
+  input {
+    transition: border-color 400ms ease-in, color 400ms ease-in;
+    margin: 5px 0;
+    // border-color: #eee;
+    // border-style: solid;
+    border-radius: 0;
+    border: 1px solid #dce1e4;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;;
+    }
+
+    &.errors {
+      border-color: #db716f;
+      @include placeholder {
+        color: #db716f;
+      }
+
+    }
+
+    @include placeholder {
+      transition: color 400ms ease-in;
+      font-weight: light;
+      font-size: 13px;
+      line-height: 1em;
+    }
+  }
+}
+
+button {
+  padding: 0.8em;
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+  font-size: 13px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  min-width: 65px;
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  &:last-of-type {
+    margin-right: 8px;
+  }
+
+  &.blue {
+    background: #12AFCB;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+
+  &.red {
+    background: #db716f;
+    color: #fff;
+    border: 1px solid transparent;
+  }
 }

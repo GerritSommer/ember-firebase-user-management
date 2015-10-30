@@ -1,91 +1,245 @@
-.login-container {
-  position: relative;
 
-
-  .login-dropdown {
-    position: absolute;
-    top: 20px;
-    right: 0;
-
-    max-height: 0;
-
-    overflow-y: hidden;
-    background: #fff;
-
-    transition: max-height 400ms ease-out;
-
-
-    &.open {
-      max-height: 500px;
-    }
-
-    form {
-      border: 2px solid #bbb;
-      border-radius: 4px;
-      padding: 10px 20px;
-      // background: #3a87ad;
-      // background: 0 1px rgba(255, 255, 255, 0.75);
-      // background: #72A26E;
-      background: #efefef;
-    }
-
-    input {
-      display: block;
-      padding: 4px 6px;
-      margin-bottom: 5px;
-      background: white;
-    border: 2px solid #ebebeb;
-    border-radius: 4px;
-    font-size: 13px;
-
-    }
-
-    button {
-      margin-top: 5px;
-      background: #f0776c;
-      color: white;
-      border: 0;
-      border-radius: 3px;
-      text-align: center;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-      background: #2ECC71;
-      cursor: pointer;
-      // box-shadow: inset 0 -2px #d76b60;
-      font-size: 13px;
-      width: 100%;
-    }
-
-  }
-
-}
 
 .profile {
   position: relative;
-  // margin-top: -15px;
-  margin-bottom: -5px;
+  width: 180px;
+  text-align: center;
+  margin: -5px 10px 0 10px;
+  transition: background 800ms ease-in;
 
-  .profile-toggle {
-    position: absolute;
-    right:20px;
-    top: 30px;
-    img {
-      border-radius: 50%;
-    }
+  &.open {
+    background: #FD6442;
   }
 
-  .profile-dropdown {
-    position: absolute;
-    max-height: 0;
-    right: 10px;
-    top: 65px;
+  .toggle img.circle {
+    margin-top: -5px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
 
+  a.open {
+  }
+
+  .dropdown {
+    position:absolute;
+    // right: -2em;
+    z-index:1;
+    *zoom:1;
+
+    text-align: left;
+    max-height: 0;
+    top: 35px;
+    right: 0;
     overflow-y: hidden;
-    background: #fff;
+    color: #fff;
+    width: 180px;
+    transition: max-height 400ms ease-in-out, background 400ms ease-in-out;
 
     &.open {
       max-height: 500px;
-      width: 150px;
-      border: 1px solid #ccc;
+      background: #FD6442;
+
+    // border: 1px solid #ccc;
     }
+
+    .header {
+      padding: 5px;
+      // border-bottom: 2px solid #F32D27;
+      margin: 0;
+    }
+
+    .body {
+      padding: 5px;
+      // border-bottom: 2px solid #F32D27;
+    }
+
+    .footer {
+      text-align: right;
+    }
+
+    a {
+      display: block;
+      padding: 5px;
+      color: #fff;
+    }
+// a {
+//   display: block;
+//   font-size: 12px;
+//   line-height: 12px;
+
+//     transition: max-height 400ms ease-in;
+
+//     &.open {
+//       max-height: 500px;
+//     }
+
+//     &:before, &:after {
+//       content:"";
+//       display:table;
+//     }
+
+//     &:after {
+//       clear:both;
+//     }
+
+    // .dropdown {
+    //   overflow:hidden;
+    //   max-height:0;
+    //   background: #efefef;
+    //   border-radius: 40px;
+    //   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+    //
+
+    //   form {
+    //     padding: 10px 20px;
+    //     margin: 10px;
+    //     background: #fff;
+    //     color: #999999;
+    //     border: 1px solid #efefef;
+    //     border-radius: 35px;
+    //   }
+
+    //   input {
+    //     font-size: 13px;
+    //     position: relative;
+
+    //     margin: 0;
+    //     border: none;
+    //     border-bottom: 2px solid #efefef;
+
+    //     transition: border-bottom 200ms ease-in;
+
+    //     &:last-of-type {
+    //       border-bottom: none;
+    //     }
+
+    //     &:focus {
+    //       outline: 0;
+    //       // border-bottom: 2px solid #009AD7;
+    //     }
+
+    //     @include placeholder {
+    //       transition: color 400ms ease-in;
+    //       font-weight: bold;
+    //     }
+
+    //     &:hover, &:focus {
+    //       @include placeholder {
+    //         color: #2980b9;
+
+    //       }
+    //     }
+
+
+
+    //   }
+
+
+    //   .login-button {
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 0px;
+    //     margin-top: -2px;
+    //     transform: translateY(-50%);
+
+    //     cursor: pointer;
+
+    //     .fa-circle {
+    //       color: #efefef;
+    //     }
+
+    //     .inner-icon {
+    //       transition: color 400ms ease-in;
+    //       &:hover {
+    //         color: #2980b9
+    //       }
+    //     }
+
+    //     // margin-top: 5px;
+    //     // // background: #f0776c;
+    //     // // color: white;
+    //     // // border: 0;
+    //     // // border-radius: 3px;
+    //     // // text-align: center;
+    //     // // text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    //     // // background: #2ECC71;
+    //     // // cursor: pointer;
+    //     // // // box-shadow: inset 0 -2px #d76b60;
+    //     // font-size: 13px;
+    //     // // width: 100%;
+    //     // width: 80%;
+    //     // // border-bottom-right-radius: 8px;
+    //     // // border-bottom-left-radius: 8px;
+    //     // background: #F4FAEB;
+    //     // border: 1px solid #efefef;
+    //     // border-radius: 4px;
+    //     // margin: 5px auto;
+    //   }
+    // }
+
+
   }
+
 }
+
+// .profile {
+//   position: relative;
+//   width: 180px;
+//   margin: 0 10px;
+
+//   transition: background 400ms ease-in;
+
+
+//   &.open {
+//     background: #FD6442;
+//   }
+
+//   .profile-details {
+
+//     .profile-toggle {
+//       margin-top: -3px;
+//       display: inline-block;
+
+//       img {
+//         border-radius: 50%;
+//         border: 1px solid #ddd;
+//       }
+
+//     }
+
+//   .profile-dropdown {
+//     position: absolute;
+//     text-align: left;
+//     max-height: 0;
+//     top: 20px;
+//     overflow-y: hidden;
+//     color: #fff;
+//     width: 180px;
+//     transition: max-height 400ms ease-in;
+//     background: #FD6442;
+//     padding: 5px;
+
+
+//     hr {
+//       border: 0;
+//       // margin: 0.5em 0 0 0;
+//       padding: 0;
+//       margin: 0;
+//       border-bottom: 2px solid #F32D27;
+//     }
+
+//     &.open {
+//       max-height: 500px;
+//       // border: 1px solid #ccc;
+//     }
+
+//     a {
+//       display: block;
+//       font-size: 12px;
+//       line-height: 12px;
+//     }
+//   }
+//   }
+
+// }
