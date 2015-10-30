@@ -1,26 +1,48 @@
-  <div class="users-index">
-    <div class="toolbar">
-      {{#link-to 'users.new'}}
-        new User
-      {{/link-to}}
-    </div>
+{{#link-to 'users.new' class="pull-right"}}
+  new User
+{{/link-to}}
 
-    <div class="list-body">
+<div class="users-index panel">
 
+  {{outlet}}
+
+  <div class="body users-list-container">
       {{#each model as |user|}}
         {{#unless user.isNew}}
-          <div class="user-list-item">
-            {{#link-to 'user.index' user}}
-              {{user.fullName}}
+
+          {{#active-link tagName='div' class='active-link-wrapper'}}
+
+            {{#link-to 'users.user' user class='user-link' disabled=this.active}}
+
+              <div class="gravatar">
+                {{gravatar-image
+                  email=user.email
+                  title=user.fullName
+                  defaultImage='mm'
+                  class='img-circle'
+                  secure=false
+                  size=40
+                }}
+              </div>
+
+              <strong class="name">{{user.fullName}}</strong>
+
+              <div class="role">
+                {{capitalize user.type}} user
+              </div>
+
             {{/link-to}}
-            - {{user.email}}
-          </div>
+
+            <div class="outlet-animation-container">
+              {{outlet user.outletRepresentation}}
+            </div>
+
+          {{/active-link}}
+
         {{/unless}}
       {{/each}}
 
-
-    </div>
-
   </div>
 
-{{outlet}}
+</div>
+

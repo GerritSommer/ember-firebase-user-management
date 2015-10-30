@@ -1,24 +1,207 @@
 .users-index {
-  .toolbar  {
-    background: #efefef;
-    text-align: right;
-    padding: 1em 0;
-    a {
-      margin-right: 2em;
-    }
-  }
+  .users-list-container {
+    width: auto;
+    height: 100%;
+    overflow: hidden;
 
-  .list-body {
+    .active-link-wrapper {
+        position: relative;
 
-    .user-list-item {
-      padding: 0.5em;
+      .outlet-animation-container {
+          max-height: 0;
+          transition: max-height 800ms ease-in-out;
+          overflow: hidden;
 
-      &:hover {
-        background: #72a26e;
-        cursor: pointer;
+        .chevron-container {
+          position: absolute;
+          right: 0.8em;
+          top: 1em;
+          padding: 1em 0;
+
+          .fa-chevron-up {
+            color: #aaa;
+            display: none;
+          }
+        }
       }
-        border-bottom: 1px solid #efefef;
-    }
 
+      &.active {
+
+        .outlet-animation-container {
+          max-height: 1000px;
+
+          .chevron-container {
+          .fa-chevron-up {
+            display: inline-block;
+          }
+        }
+
+        }
+
+      }
+
+        // &:first-of-type {
+        //   border-top: 1px solid #ddd;
+        // }
+
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ddd;
+        }
+
+      a.user-link {
+        display: block;
+        overflow: hidden;
+        padding: 10px 0;
+        position: relative;
+        color: #5f5f5f;
+
+        &:not(.active):hover {
+          background: #f9f9f9;
+        }
+
+
+
+        .gravatar {
+          float: left;
+          display: block;
+          width: 10%;
+          > img {
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            overflow: hidden;
+          }
+        }
+
+        .name {
+          width: 10%;
+          color: #4E5E6A;
+          font-weight: 600;
+          display: inline-block;
+          margin: 0;
+          line-height: 48px;
+        }
+
+        .role {
+          line-height: 45.5px;
+          color: #a0a0a0;
+          display: inline-block;
+          margin: 0;
+          font-size: 11px;
+        }
+
+      }
+
+    }
   }
 }
+
+.user-details {
+  margin: 1em 0;
+  margin: 1em 0 1em 3.6em;
+  dl {
+    display: inline-block;
+    &:not(:first-of-type) {
+      margin-left: 2em;
+    }
+  }
+}
+
+// .users-index {
+//     border-bottom: 1px solid #ccc;
+
+//   > .header > a {
+//     font-weight: lighter;
+
+//     &.active {
+//       visibility: hidden;
+//     }
+//   }
+
+
+//   .user-new {
+//     padding: 0 1.5em;
+//     padding-bottom: 1.5em;
+//     border-bottom: 1px solid #ccc;
+//     background-color: #efefef;
+
+//     h4 {
+//       border-bottom: 1px dashed #ccc;
+//       padding-bottom: 1em;
+//     }
+
+//     label {
+//       display: block;
+//     }
+//   }
+
+//   > .body {
+
+//     .list-item {
+//       display: block;
+//       padding: 0.5em 0;
+//       &:not(:last-child) {
+//         border-bottom: 1px solid #ccc;
+//       }
+//       // &:hover, &.active {
+//       //   background: #efefef;
+//       // }
+
+//       .user-link.active {
+//         cursor: default;
+//         color: #414751;
+
+//         & + .outlet-animation-container {
+//           max-height: 0;
+//           transition: max-height 1800ms;
+//           overflow: hidden;
+//         }
+
+//         &.active + .outlet-animation-container {
+//           max-height: 1000px;
+//           overflow: visible;
+//         }
+//       }
+
+//       // .outlet-animation-container {
+//       //   max-height: 0;
+//       //   transition: max-height 1800ms;
+//       //   overflow: hidden;
+//       // }
+
+
+//     }
+
+//   }
+// }
+
+
+
+// .outlet-animation-container {
+
+//   // overflow: hidden;
+//   cursor: default;
+
+//   > a.active {
+//     padding: 0.5em;
+//     margin-top: -1em;
+//   }
+
+//   .user-details {
+//     // border-top: 1px solid #ccc;
+//     // padding:  1em 2em;
+//     .gravatar-image {
+//       border-radius: 50%;
+//       border: 1px solid #ddd;
+//       margin: 1em 0;
+//     }
+
+//     .base-data {
+//       margin-left: 1em;
+//     }
+//   }
+// }
+
+// // .active + .user-outlet-container {
+// //   max-height: 1000px;
+// // }

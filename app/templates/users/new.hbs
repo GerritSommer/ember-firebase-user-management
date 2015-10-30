@@ -1,8 +1,118 @@
-<td>
-  {{input type='text' value=model.firstName placeholder="First name"}} <br>
-  {{input type='text' value=model.lastName placeholder="Last name"}} <br>
-  {{input type='text' value=model.email placeholder="email"}}
 
-  {{outlet}}
+<form class="user-new clearfix">
+  <h4>Create new user</h4>
 
-</td>
+  <div class="row">
+
+
+  <fieldset class="column w25">
+    <legend>Base data</legend>
+    <label>
+      <span class="label">first name:</span>
+      {{validated-input
+        type='text'
+        value=model.firstName
+        placeholder="First name"
+        showErrors=model.showErrors
+        errors=model.computedErrors.firstName
+      }}
+      {{#if model.showErrors}}
+        <small class="errors">
+          {{array-to-sentence model.computedErrors.firstName}}
+        </small>
+      {{/if}}
+    </label>
+
+    <label>
+      <span class="label">last name:</span>
+      {{validated-input
+        type='text'
+        value=model.lastName
+        placeholder="Last name"
+        showErrors=model.showErrors
+        errors=model.computedErrors.lastName
+      }}
+      {{#if model.showErrors}}
+        <small class="errors">
+          {{array-to-sentence model.computedErrors.lastName}}
+        </small>
+      {{/if}}
+    </label>
+
+    <label>
+      <span class="label">email:</span>
+      {{validated-input
+        type='text'
+        value=model.email
+        placeholder="email"
+        showErrors=model.showErrors
+        errors=model.computedErrors.email
+      }}
+      {{#if model.showErrors}}
+        <small class="errors">
+          {{array-to-sentence model.computedErrors.email}}
+        </small>
+      {{/if}}
+    </label>
+  </fieldset>
+
+  <fieldset class="column 25">
+    <legend>Repeat password</legend>
+
+    <label>
+      <span class="label">password:</span>
+      {{validated-input
+        type='text'
+        value=model.password
+        placeholder="password"
+        showErrors=model.showErrors
+        errors=model.computedErrors.password
+      }}
+      {{#if model.showErrors}}
+        <small class="errors">
+          {{array-to-sentence model.computedErrors.password}}
+        </small>
+      {{/if}}
+    </label>
+
+    <label>
+      <span class="label">repeat password:</span>
+      {{validated-input
+        type='text'
+        value=model.repeatedPassword
+        placeholder="Repeat password"
+        showErrors=model.showErrors
+        errors=model.computedErrors.repeatedPassword
+      }}
+      {{#if model.showErrors}}
+        <small class="errors">
+          {{array-to-sentence model.computedErrors.repeatedPassword}}
+        </small>
+      {{/if}}
+    </label>
+  </fieldset>
+</div>
+
+  <div class="text-right">
+    <button class="red" {{action 'cancelNewUser' model}} disabled={{model.isSaving}}>
+      Cancel
+    </button>
+    <button class="blue" {{action 'saveUser' model}} disabled={{model.isSaving}}>
+      {{#if model.isSaving}}
+        <i class="icon-refresh icon-spin"></i>
+      {{else}}
+        Save
+      {{/if}}
+    </button>
+  </div>
+
+  <div>
+    {{#tool-tip}}
+      lala
+      <span>
+        lalal
+      </span>
+    {{/tool-tip}}
+  </div>
+
+</form>
