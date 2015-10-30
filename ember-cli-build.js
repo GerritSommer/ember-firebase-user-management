@@ -11,6 +11,9 @@ module.exports = function(defaults) {
         'Android >= 4',
         'ie >= 9'
       ]
+    },
+    emberCliFontAwesome: {
+      useScss: true
     }
     // Add options here
   });
