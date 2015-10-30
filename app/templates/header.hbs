@@ -1,7 +1,7 @@
 <header>
 
-  <div class="wrapper row">
-    <div class="col col-3">
+  <div class="wrapper ">
+    <div>
       {{#link-to 'index'}}
         {{!-- <img src="assets/images/logo.png" class="logo"/> --}}
         {{!-- <span class="logo"><h2>sommer</h2></span> --}}
@@ -18,12 +18,14 @@
             {{#link-to 'users'}} Users {{/link-to}}
           </li>
         {{/if}}
-
+        <li>
+          {{login-form authentication=authentication}}
+        </li>
       </ul>
       <i class="fa fa-bars"></i>
     </nav>
 
   </div>
 
-  {{login-form authentication=authentication}}
+
 </header>
