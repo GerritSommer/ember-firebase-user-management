@@ -32,11 +32,13 @@
         showErrors=model.showErrors
         errors=model.computedErrors.lastName
       }}
+
       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.lastName}}
         </small>
       {{/if}}
+
     </label>
 
     <label>

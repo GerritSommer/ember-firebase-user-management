@@ -1,8 +1,10 @@
-{{#link-to 'users.new' class="pull-right"}}
-  new User
-{{/link-to}}
+
 
 <div class="users-index panel">
+
+  {{#link-to 'users.new' class="users-new-link pull-right"}}
+    Create User
+  {{/link-to}}
 
   {{outlet}}
 
@@ -28,7 +30,7 @@
               <strong class="name">{{user.fullName}}</strong>
 
               <div class="role">
-                {{capitalize user.type}} user
+                {{capitalize user.type}}
               </div>
 
             {{/link-to}}
