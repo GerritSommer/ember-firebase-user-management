@@ -1,5 +1,14 @@
 .users-index {
+  position: relative;
+
+  a.users-new-link {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+  }
+
   .users-list-container {
+    margin-top: 20px;
     width: auto;
     height: 100%;
     overflow: hidden;
@@ -15,7 +24,7 @@
         .chevron-container {
           position: absolute;
           right: 0.8em;
-          top: 1em;
+          bottom: 0;
           padding: 1em 0;
 
           .fa-chevron-up {

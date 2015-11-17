@@ -13,9 +13,13 @@
 @import "bower_components/font-awesome/scss/font-awesome";
 
 
+* {
+  box-sizing: border-box;
+}
+
 /*  General CSS  */
 body {
-  background: #f9f9f9;
+  background: #f4f4f4;
   margin: 0;
   font-family: "raleway-regular", arial;
   font-size: 16px;
