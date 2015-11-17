@@ -12,5 +12,9 @@ export default Ember.Route.extend({
   //     });
   //   }
   // }.observes('session.uid'),
-
+  actions: {
+    error: function(erorr) {
+      return this.transitionTo('login');
+    }
+  }
 });
