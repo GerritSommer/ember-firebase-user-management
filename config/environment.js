@@ -9,7 +9,7 @@ module.exports = function(environment) {
       'img-src': "'self' http://www.gravatar.com/",
       'style-src': "'self' 'localhost:4200'"
     },
-    firebase: 'ENTER_YOUR_FIREBASE_URL_HERE',
+    firebase: 'https://scorching-torch-4275.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
     },
