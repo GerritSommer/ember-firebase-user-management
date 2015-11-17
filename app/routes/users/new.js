@@ -1,25 +1,32 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  authentication:     Ember.inject.service(),
+  templateName:   'user/form',
+  authentication: Ember.inject.service(),
 
   model: function() {
     return this.store.createRecord('user');
   },
 
   actions: {
+
     cancelNewUser: function(user) {
       this.store.unloadRecord(user);
       this.transitionTo('users')
     },
+
     saveUser: function(user) {
       let firebase = this.store.adapterFor('application').get('firebase');
+
+      // validate user before taking action
       if (user.get('computedIsValid')) {
-        // Move this to the authentication service
+
+        // TODO: Move this to the authentication service
         firebase.createUser({
           email:    user.get('email'),
           password: user.get('password')
         }, (error)=> {
+
           if (error) {
             switch (error.code) {
               case "EMAIL_TAKEN":
@@ -31,18 +38,20 @@ export default Ember.Route.extend({
               default:
                 console.log("Error creating user:", error);
             }
+
           } else {
+
             user.save()
-              .then((newUser)=> {
-                this.transitionTo('users.user', newUser);
-              })
-              .catch(()=> {
-                user.set('showErrors', true);
-              });
+            .then((newUser)=> {
+              this.transitionTo( 'user.index', newUser );
+            })
+            .catch(()=> {
+              user.set( 'showErrors', true );
+            });
           }
         });
       } else {
-        user.set('showErrors', true);
+        user.set( 'showErrors', true );
       }
     }
   }

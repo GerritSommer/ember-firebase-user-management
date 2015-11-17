@@ -6,7 +6,7 @@ export default Ember.TextField.extend({
   showErrors:        true,
 
   invalid:           Ember.computed('errors.[]', 'showErrors', function() {
-    if (!Ember.isEmpty(this.get('errors')) && this.get('showErrors')) return true;
+    if ( !Ember.isEmpty(this.get('errors')) && this.get('showErrors') ) return true;
   })
 
 });

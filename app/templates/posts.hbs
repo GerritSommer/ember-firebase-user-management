@@ -1,0 +1,32 @@
+
+<div class="posts-index panel">
+
+  <div class="body users-list-container">
+      {{#each model as |post|}}
+        {{#unless post.isNew}}
+
+          <article>
+
+            <h3>
+              {{post.title}}
+
+            </h3>
+            <hr>
+
+            <p class="justified">
+              {{post.body}}
+            </p>
+
+            <small class="pull-right">{{post.createdAtDate}} - {{post.author.fullName}}</small>
+
+          </article>
+
+        {{/unless}}
+      {{/each}}
+
+  </div>
+
+  {{outlet}}
+
+</div>
+

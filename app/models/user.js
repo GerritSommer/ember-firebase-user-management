@@ -3,7 +3,12 @@ import Ember from 'ember';
 import ValidationsMixin from 'ember-computed-validations/mixins/computed-validations';
 import momentFormat from 'ember-moment/computeds/format';
 
-var attr = DS.attr;
+var attr    = DS.attr;
+var hasMany = DS.hasMany;
+
+var now = function() {
+  return new Date().getTime();
+}
 
 export default DS.Model.extend(ValidationsMixin, {
   // Data attributes
@@ -13,9 +18,11 @@ export default DS.Model.extend(ValidationsMixin, {
   email:            attr('string'),
   gravatarLink:     attr('string'),
 
-  createdAt:        attr('date', { defaultValue: function() { return new Date().getTime(); } }),
-  updatedAt:        attr('date', { defaultValue: function() { return new Date().getTime(); } }),
+  createdAt:        attr('date', { defaultValue: function() { now() } }),
+  updatedAt:        attr('date', { defaultValue: function() { now() } }),
 
+  // Relations
+  posts:            hasMany('post', { async: true }),
 
   // Local attributes
   password:         null,
@@ -69,6 +76,11 @@ export default DS.Model.extend(ValidationsMixin, {
       passwordNotEmpty: 'Please enter a password.',
       passwordsMatch: 'The password fields must match.'
     }
-  }
+  },
+
+  // observers
+  setUpdatedAt: function() {
+    this.set('updatedAt', now());
+  }.on('didUpdate'),
 
 });

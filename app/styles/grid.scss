@@ -2,12 +2,6 @@
 $padding: 1rem !default;
 $margin:  1rem !default;
 
-
-
-//====================================================
-//  Grid Componets
-//====================================================
-
 .row {
   display: flex;
   flex: 1 1 auto;
@@ -32,10 +26,6 @@ $margin:  1rem !default;
     width: 100% !important;
   }
 }
-
-//====================================================
-//  Gutters
-//====================================================
 
 // Add .gutters to .row/.column elements
 .gutters { padding: $padding; }

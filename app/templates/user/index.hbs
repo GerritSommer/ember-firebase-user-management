@@ -4,15 +4,6 @@
 
 <div class="user-details">
 
-    {{!gravatar-image
-      email=model.email
-      title=model.fullName
-      defaultImage='mm'
-      class='img-circle'
-      secure=false
-      size=60
-    }}
-
     <dl class="base-data">
       <dt>Name:</dt>    <dd>{{model.fullName}}</dd>
       <dt>Email:</dt>   <dd>{{model.email}}</dd>
@@ -22,7 +13,6 @@
       <dt>Created at:</dt> <dd>{{model.createdAtDate}}</dd>
       <dt>Updated at:</dt>  <dd>{{model.updatedAtDate}}</dd>
     </dl>
-
      <br>
 
 </div>

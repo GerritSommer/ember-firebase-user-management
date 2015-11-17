@@ -5,13 +5,6 @@ var uid
 
 export default Ember.Route.extend({
 
-  // onSession: function() {
-  //   if (uid = this.get('session.uid')) {
-  //     this.store.findQuery('user', { uid: uid }).then((users)=> {
-  //       this.get('session').set('userObject', users.get('firstObject'))
-  //     });
-  //   }
-  // }.observes('session.uid'),
   actions: {
     error: function(erorr) {
       return this.transitionTo('login');
