@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   isAuthenticating: false,
   currentUser:      null,
+  // store:            Ember.inject.service(),
 
   isLoggedIn: Ember.computed('currentUser', function(){
     if (this.store.adapterFor('application').get('firebase').getAuth()) { return true; }
@@ -22,10 +23,10 @@ export default Ember.Object.extend({
             currentUser:    user.get('firstObject'),
             isAuthenticating: false
           });
-        }, ()=> {
-          delete store.typeMapFor(this.store.modelFor('user')).idToRecord[data.uid];
+        }, (error)=> {
+          delete this.store.typeMapFor(this.store.modelFor('user')).idToRecord[data.uid];
           this.store.createRecord('user', {
-            uid:     authData.uid,
+            uid:     data.uid,
           }).save().then((user) => {
             this.setProperties({
               currentUser:    user,
