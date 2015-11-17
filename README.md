@@ -1,7 +1,13 @@
 # Fire
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+- This Applications can be used as a base to user management on firebase. Due to security concerns, authenticated users are seperated from the database.
+
+- To set the app up with your own firebase, go to 'condig/environment.js' and paste your url her:
+    'firebase: 'https://scorching-torch-4275.firebaseio.com/'
+
+- You have to create the first via the firebase dashboard (email authentication), a new user will be added to the database, the first time you log in.
+
+
 
 ## Prerequisites
 
@@ -15,7 +21,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:GerritSommer/ember-firebase-user-management.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
