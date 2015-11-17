@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'fire',
     environment: environment,
     contentSecurityPolicy: {
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'connect-src': "'self' https://scorching-torch-4275.firebaseio.com https://auth.firebase.com wss://*.firebaseio.com",
       'img-src': "'self' http://www.gravatar.com/",
       'style-src': "'self' 'localhost:4200'"
     },
