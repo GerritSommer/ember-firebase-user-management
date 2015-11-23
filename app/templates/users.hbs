@@ -2,17 +2,27 @@
 
 <div class="users-index panel">
 
-  {{#link-to 'users.new' class="users-new-link pull-right"}}
+  {{!-- {{#link-to 'users.new' class="users-new-link"}}
     Create User
-  {{/link-to}}
+  {{/link-to}} --}}
+
+    <div class="search">
+      <label>
+        {{input type=text value=searchQuery placeholder="Filter by name"}}
+        {{fa-icon "search" size="1"}}
+      </label>
+
+    </div>
+
 
   {{outlet}}
 
-  <div class="body users-list-container">
-      {{#each model as |user|}}
-        {{#unless user.isNew}}
+  <div class=" users-list-container">
 
-          {{#active-link tagName='div' class='active-link-wrapper'}}
+
+
+      {{#each filteredUsers as |user|}}
+        {{#unless user.isNew}}
 
             {{#link-to 'user.index' user class='user-link' disabled=this.active}}
 
@@ -39,7 +49,6 @@
               {{outlet user.outletRepresentation}}
             </div>
 
-          {{/active-link}}
 
         {{/unless}}
       {{/each}}
