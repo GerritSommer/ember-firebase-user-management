@@ -1,7 +1,6 @@
 export default function() {
 
   this.get('wss://s-dal5-nss-43.firebaseio.com/.ws?v=5&ns=scorching-torch-4275');
-  // {"t":"d","d":{"r":2,"b":{"s":"ok","d":{"auth":{"provider":"password","uid":"64db6228-1e97-4eb4-9057-10d7cf0a671f"},"expires":1459783136}}}}
   this.get('/auth', function() { /* ... */});
   this.namespace = '/api';
   this.get('/contacts', 'contacts');
