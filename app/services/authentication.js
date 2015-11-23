@@ -36,7 +36,7 @@ export default Ember.Object.extend({
     });
   },
 
-  login: function( email, password, callback ) {
+  login: function( email, password, success, fail ) {
     this.set( 'isAuthenticating', true );
     if ( !email || !password ) {
       this.set( 'isAuthenticating', false );
@@ -49,9 +49,9 @@ export default Ember.Object.extend({
     }, (error, data)=> {
       this.set( 'isAuthenticating', false );
       if (error) {
-        console.log("There was an authentication error: ", error);
+        fail(error);
       } else {
-        callback();
+        success();
       }
     });
   },

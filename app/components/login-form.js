@@ -31,17 +31,27 @@ export default Ember.Component.extend({
   actions: {
     login: function()  {
       var self = this;
-      this.get('authentication').login( this.get('email'), this.get('password'), function() {
-        self.set('open', false);
-      } );
 
+      var success = function() {
+        self.flashMessages.success('Welcome, you are logged in!', { timeout: 3000 });
+        self.set('open', false);
+      }
+
+      var fail = function(error) {
+        self.flashMessages.danger('Bad credentials!', { timeout: 3000 });
+      }
+
+      this.get('authentication').login( this.get('email'), this.get('password'), success, fail );
     },
+
     logout: function() {
       this.get('authentication').logout();
     },
+
     toggleDropdown: function()   {
       this.toggleProperty('open');
     },
+
     goToProfile: function() {
       this.set('open', false);
       this.sendAction( 'action', this.get('authentication.currentUser') );

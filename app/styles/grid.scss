@@ -1,6 +1,4 @@
 
-$padding: 1rem !default;
-$margin:  1rem !default;
 
 .row {
   display: flex;
@@ -22,44 +20,13 @@ $margin:  1rem !default;
 }
 
 .row > .column {
+  &.column.full { width: 100%; }
+  &.column.two-thirds { width: 66.7%; }
+  &.column.half { width: 50%; }
+  &.column.third { width: 33.3%; }
+  &.column.fourth { width: 25%; }
   @include small {
     width: 100% !important;
   }
 }
 
-// Add .gutters to .row/.column elements
-.gutters { padding: $padding; }
-
-// All direct descendants of .gutters get margin
-.gutters > .column,
-.gutters > .row {
-  margin: $margin;
-  @include small {
-    width: 100% !important;
-    min-width: 0;
-  }
-}
-
-// offset padding/margin to maintain width
-.gutters > {
-  .w5    { width:  calc(5%   -  #{$padding + $margin}); }
-  .w10   { width:  calc(10%  -  #{$padding + $margin}); }
-  .w15   { width:  calc(15%  -  #{$padding + $margin}); }
-  .w20   { width:  calc(20%  -  #{$padding + $margin}); }
-  .w25   { width:  calc(25%  -  #{$padding + $margin}); }
-  .w30   { width:  calc(30%  -  #{$padding + $margin}); }
-  .w35   { width:  calc(35%  -  #{$padding + $margin}); }
-  .w40   { width:  calc(40%  -  #{$padding + $margin}); }
-  .w45   { width:  calc(45%  -  #{$padding + $margin}); }
-  .w50   { width:  calc(50%  -  #{$padding + $margin}); }
-  .w55   { width:  calc(55%  -  #{$padding + $margin}); }
-  .w60   { width:  calc(60%  -  #{$padding + $margin}); }
-  .w65   { width:  calc(65%  -  #{$padding + $margin}); }
-  .w70   { width:  calc(70%  -  #{$padding + $margin}); }
-  .w75   { width:  calc(75%  -  #{$padding + $margin}); }
-  .w80   { width:  calc(80%  -  #{$padding + $margin}); }
-  .w85   { width:  calc(85%  -  #{$padding + $margin}); }
-  .w90   { width:  calc(90%  -  #{$padding + $margin}); }
-  .w95   { width:  calc(95%  -  #{$padding + $margin}); }
-  .w100  { width:  calc(100% -  #{$padding + $margin}); }
-}

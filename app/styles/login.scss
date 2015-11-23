@@ -70,6 +70,7 @@
 
       a {
         line-height: 1.5em;
+        border-color: $middle-grey;
         &[disabled] {
           color: $middle-grey;
         }

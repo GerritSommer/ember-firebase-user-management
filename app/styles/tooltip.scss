@@ -35,3 +35,23 @@ span.tooltip {
     }
   }
 }
+
+
+.alert.active {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  box-shadow: 0px 4px 10px -2px #000;
+  background: #f4f4f4;
+  border: 1px solid $middle-grey;
+  padding: 1em;
+
+  &.alert-danger {
+    background: $red;
+    color: #fff;
+  }
+  &.alert-success {
+    background: $blue;
+    color: #fff;
+  }
+}

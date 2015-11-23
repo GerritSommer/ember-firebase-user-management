@@ -6,7 +6,6 @@
 @import "header";
 @import "footer";
 @import "forms";
-@import "tables";
 @import "users";
 @import "login";
 @import "tooltip";
@@ -15,6 +14,8 @@
 
 /*  General CSS  */
 * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -120,8 +121,23 @@ article {
   margin-bottom: 1.5em;
   padding-bottom: 1em;
 
+
+  &.three-quarter {
+    display: inline-block;
+    width: 74.5%;
+  }
+
   p {
     line-height: 1.2em;
     margin-bottom: 0.5em;
+  }
+}
+
+aside {
+  padding: 1em;
+  &.quarter {
+    vertical-align: top;
+    display: inline-block;
+    width: 24.5%;
   }
 }
