@@ -11,32 +11,41 @@ export default Ember.Component.extend({
 
   authentication:     Ember.inject.service(),
 
-  isLoggedIn:         Ember.computed.bool('authentication.isLoggedIn'),
-  isAuthenticating:   Ember.computed('authentication.isAuthenticating', function() {
-    return this.get('authentication.isAuthenticating')
-  }),
+  isLoggedIn:         Ember.computed.alias('authentication.isLoggedIn'),
+  isAuthenticating:   Ember.computed.alias('authentication.isAuthenticating'),
 
   didInsertElement() {
     $(document).mouseup((event)=> {
       if ( !this.get('open') ) return;
-      if ( !$(event.target).is(this.$()) ) {
+      if ( this.$().has(event.target).length === 0 ) {
         this.set('open', false);
       }
     });
   },
 
+  willDestroyElement() {
+    this.$().unbind('mouseup');
+  },
+
 
   actions: {
     login: function()  {
-      this.get('authentication').login(this.get('email'), this.get('password'));
+      this.get('authentication').login( this.get('email'), this.get('password'), function() {
+        this.set('open', false);
+      } );
+
     },
     logout: function() {
       this.get('authentication').logout();
     },
-
     toggleDropdown: function()   {
       this.toggleProperty('open');
+    },
+    goToProfile: function() {
+      this.set('open', false);
+      this.sendAction( 'action', this.get('authentication.currentUser') );
     }
+
   }
 
 });
