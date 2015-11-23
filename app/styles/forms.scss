@@ -7,6 +7,10 @@
 
 input {
   padding: 6px 4px;
+
+  &[disabled] {
+    border-color: $light-grey;
+  }
 }
 
 form {
@@ -35,14 +39,14 @@ label {
     }
 
   &.invalid input {
-    border: 1px solid #db716f;
+    border: 1px solid $red;
   }
 
   input {
     transition: border-color 400ms ease-in, color 400ms ease-in;
     margin: 5px 0;
     border-radius: 0;
-    border: 1px solid #dce1e4;
+    border: 1px solid $dark-grey;
     box-sizing: border-box;
 
     &:focus {
@@ -50,7 +54,7 @@ label {
     }
 
     &.errors {
-      border-color: #db716f;
+      border-color: $red;
       @include placeholder {
         color: #db716f;
       }
@@ -70,7 +74,7 @@ button {
   padding: 0.8em;
   background: #fff;
   border-radius: 0;
-  border: 1px solid #ccc;
+  border: 1px solid $dark-grey;
   display: inline-block;
   padding: 6px 12px;
   text-align: center;
@@ -89,13 +93,13 @@ button {
   }
 
   &.blue {
-    background: #12AFCB;
+    background: $blue;
     color: #fff;
     border: 1px solid transparent;
   }
 
   &.red {
-    background: #db716f;
+    background: $red;
     color: #fff;
     border: 1px solid transparent;
   }
