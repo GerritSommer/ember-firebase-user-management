@@ -5,7 +5,7 @@
 - To set the app up with your own firebase, go to 'condig/environment.js' and paste your url her:
     'firebase: 'https://scorching-torch-4275.firebaseio.com/'
 
-- You have to create the first via the firebase dashboard (email authentication), a new user will be added to the database, the first time you log in.
+- You have to create the first userer via the firebase dashboard (email authentication), a new user will be added to the database, the first time you log in.
 
 
 
