@@ -18,24 +18,18 @@ export default Ember.Object.extend({
     this.get('firebaseAdapter').onAuth((data)=> {
       this.set( 'isAuthenticating', false );
       if ( !data ) {
-        this.setProperties({
-          currentUser:      null
-        });
+        this.set( 'currentUser', null );
         var router = this.container.lookup('router:main');
         router.transitionTo('/');
       } else {
         this.store.findRecord('user', data.uid ).then((user)=> {
-          this.setProperties({
-            currentUser:      user
-          });
+          this.set( 'currentUser', user );
         }, (error)=> {
           this.store.createRecord('user', {
-            id:     data.uid,
-            email: data.email
+            id:    data.uid,
+            email: data.password.email
           }).save().then((user) => {
-            this.setProperties({
-              currentUser:      user
-            })
+            this.set( 'currentUser', user );
           });
         });
       }

@@ -30,8 +30,9 @@ export default Ember.Component.extend({
 
   actions: {
     login: function()  {
+      var self = this;
       this.get('authentication').login( this.get('email'), this.get('password'), function() {
-        this.set('open', false);
+        self.set('open', false);
       } );
 
     },
