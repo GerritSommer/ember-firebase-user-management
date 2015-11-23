@@ -28,11 +28,9 @@ module.exports = function(environment) {
     }
   };
 
-  // if (environment === 'production') {
-  // ENV['ember-cli-mirage'] = {
-  //     enabled: true
-  //   }
-  // }
+  ENV['ember-cli-mirage'] = {
+      enabled: false
+    }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
