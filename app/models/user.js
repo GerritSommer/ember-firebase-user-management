@@ -72,10 +72,10 @@ export default DS.Model.extend(ValidationsMixin, {
         return `${this.get('user.email')} is not a valid email address.`;
       }
     },
-    password: {
-      passwordNotEmpty: 'Please enter a password.',
-      passwordsMatch: 'The password fields must match.'
-    }
+    // password: {
+    //   passwordNotEmpty: 'Please enter a password.',
+    //   passwordsMatch: 'The password fields must match.'
+    // }
   },
 
   // observers

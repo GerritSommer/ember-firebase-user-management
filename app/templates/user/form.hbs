@@ -1,5 +1,5 @@
 
-<form class="">
+<form class="users-form">
 
   <div class="row">
 
@@ -58,8 +58,7 @@
   </fieldset>
 
   <fieldset class="column 25">
-    <legend>Repeat password</legend>
-
+    <legend>Password </legend>
     <label>
       <span class="label">password:</span>
       {{validated-input
@@ -68,6 +67,7 @@
         placeholder="password"
         showErrors=model.showErrors
         errors=model.computedErrors.password
+        disabled=true
       }}
       {{#if model.showErrors}}
         <small class="errors">
@@ -84,6 +84,7 @@
         placeholder="Repeat password"
         showErrors=model.showErrors
         errors=model.computedErrors.repeatedPassword
+        disabled=true
       }}
       {{#if model.showErrors}}
         <small class="errors">
@@ -91,11 +92,13 @@
         </small>
       {{/if}}
     </label>
+    <small>*disabled for the moment</small>
+
   </fieldset>
 </div>
 
   <div class="text-right">
-    <button class="red" {{action 'cancelNewUser' model}} disabled={{model.isSaving}}>
+    <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
       Cancel
     </button>
     <button class="blue" {{action 'saveUser' model}} disabled={{model.isSaving}}>
@@ -105,15 +108,6 @@
         Save
       {{/if}}
     </button>
-  </div>
-
-  <div>
-    {{#tool-tip}}
-      lala
-      <span>
-        lalal
-      </span>
-    {{/tool-tip}}
   </div>
 
 </form>
