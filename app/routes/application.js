@@ -8,6 +8,9 @@ export default Ember.Route.extend({
   actions: {
     error: function(erorr) {
       return this.transitionTo('login');
+    },
+    goToProfile: function(user) {
+      this.transitionTo('user.edit', user)
     }
   }
 });
