@@ -1,7 +1,8 @@
 
 <div class="posts-index panel">
 
-  <div class="body users-list-container">
+  <div class="body">
+
       {{#each model as |post|}}
         {{#unless post.isNew}}
 
@@ -14,7 +15,7 @@
             <hr>
 
             <p class="justified">
-              {{post.body}}
+              {{{post.body}}}
             </p>
 
             <small class="pull-right">{{post.createdAtDate}} - {{post.author.fullName}}</small>
