@@ -18,28 +18,40 @@
 <div class="dropdown {{if open 'open'}}">
 
   <div class="header">
-    Hello <strong>{{authentication.currentUser.fullName}}</strong>
+    {{#if isLoggedIn}}
+      Hello <strong>{{authentication.currentUser.fullName}}</strong>
+    {{else}}
+      Sign in.
+    {{/if}}
+
   </div>
 
   <div class="body">
     {{#if isLoggedIn}}
-      <a href="">Settings</a>
+      <a {{action 'goToProfile'}}>
+          Settings
+      </a>
+
+      <a disabled=true>
+        change password
+      </a>
 
     {{else}}
       <form>
+        <fieldset>
+          {{input value=email placeholder="email" disabled=isAuthenticating}}
+          {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
+        </fieldset>
 
-        {{input value=email placeholder="email" disabled=isAuthenticating}}
-        {{input value=password type='password' enter="login" placeholder="password" disabled=isAuthenticating}}
 
-        <span class="fa-stack login-button">
+        <div class="fa-stack fa-lg">
           <i class="fa fa-circle fa-stack-2x"></i>
           {{#if isAuthenticating}}
-            <i class="fa fa-refresh fa-spin fa-stack-1x inner-icon"></i>
+            <i class="fa fa-refresh fa-spin fa-stack-1x fa-inverse"></i>
           {{else}}
-            <i class="fa fa-chevron-right fa-stack-1x inner-icon"></i>
+            <i class="fa fa-arrow-right fa-stack-1x fa-inverse" {{action 'login'}}></i>
           {{/if}}
-        </span>
-
+        </div>
       </form>
 
   {{/if}}
