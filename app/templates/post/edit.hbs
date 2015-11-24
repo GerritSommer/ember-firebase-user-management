@@ -1,0 +1,49 @@
+<div class="panel">
+  <div class="body">
+
+    <form>
+      <label>
+        Title
+        {{input type=text value=model.title}}
+      </label>
+
+      <br>
+
+      {{#em-wysiwyg configName="bs" as_html=model.body}}
+
+        {{#em-wysiwyg-toolbar}}
+          {{em-wysiwyg-action command="bold" title="Bold (Ctrl/Cmd+B)" icon="fa fa-bold"}}
+          {{em-wysiwyg-action command="italic" title="Italic (Ctrl/Cmd+I)" icon="fa fa-italic"}}
+          {{em-wysiwyg-action-format icon="fa fa-text-height"}}
+          {{em-wysiwyg-action command="justifyleft" title="Align Left (Ctrl/Cmd+L)" icon="fa fa-align-left"}}
+          {{em-wysiwyg-action command="justifyright" title="Align Right (Ctrl/Cmd+R)" icon="fa fa-align-right"}}
+          {{em-wysiwyg-action command="undo" title="Undo(Ctrl/Cmd+Z)" icon="fa fa-undo"}}
+          {{em-wysiwyg-action command="redo" title="Redo (Ctrl/Cmd+Y)" icon="fa fa-repeat"}}
+          {{em-wysiwyg-action-link title="Insert Link" icon="fa fa-link"}}
+        {{/em-wysiwyg-toolbar}}
+
+        {{em-wysiwyg-editor}}
+
+      <div class="text-right">
+
+        <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
+          Cancel
+        </button>
+
+        <button class="blue" {{action 'save' model}} disabled={{model.isSaving}}>
+          {{#if model.isSaving}}
+            <i class="icon-refresh icon-spin"></i>
+          {{else}}
+            Save
+          {{/if}}
+        </button>
+
+      </div>
+
+    {{/em-wysiwyg}}
+
+
+    </form>
+
+  </div>
+</div>

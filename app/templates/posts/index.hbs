@@ -1,0 +1,29 @@
+<div class="panel">
+  <div class="body">
+
+    {{#each model as |post|}}
+      <article class="three-quarter">
+        {{#link-to 'post.edit' post class="pull-right"}}
+          {{fa-icon "pencil" size="1"}}
+        {{/link-to}}
+        <h3>{{post.title}}</h3>
+        <hr>
+        {{{post.body}}}
+
+      </article>
+
+    {{/each}}
+
+    <aside class="quarter text-center">
+      <p>
+        <h4>sidebar:</h4>
+        <ul>
+          <li>- Responsify</li>
+          <li>- Implement password change</li>
+          <li>- Readd user creation</li>
+        </ul>
+      </p>
+    </aside>
+
+  </div>
+</div>

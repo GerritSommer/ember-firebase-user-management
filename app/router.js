@@ -13,7 +13,12 @@ Router.map(function() {
     });
   });
 
-  this.route('posts');
+  this.route('posts', function() {});
+
+  this.route('post', { path: 'posts/:post_id' }, function() {
+    this.route('edit');
+  });
+
 });
 
 export default Router;
