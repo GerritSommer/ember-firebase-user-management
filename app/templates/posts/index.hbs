@@ -3,25 +3,31 @@
 
     {{#each model as |post|}}
       <article class="three-quarter">
-        {{#link-to 'post.edit' post class="pull-right"}}
-          {{fa-icon "pencil" size="1"}}
-        {{/link-to}}
-        <h3>{{post.title}}</h3>
+
+        {{#if authentication.isLoggedIn}}
+          {{#link-to 'post.edit' post class="pull-right"}}
+            <small>edit {{fa-icon "pencil" size="1"}}</small>
+          {{/link-to}}
+        {{/if}}
+
+        <h3>
+          {{#link-to 'post.index' post}}
+            {{post.title}}
+          {{/link-to}}
+        </h3>
         <hr>
-        {{{post.body}}}
+        <div class="post-body justify-text">
+          {{{post.body}}}
+        </div>
 
       </article>
 
     {{/each}}
 
-    <aside class="quarter text-center">
+    <aside class="quarter">
       <p>
-        <h4>sidebar:</h4>
-        <ul>
-          <li>- Responsify</li>
-          <li>- Implement password change</li>
-          <li>- Readd user creation</li>
-        </ul>
+        <h4>sidebar</h4>
+
       </p>
     </aside>
 

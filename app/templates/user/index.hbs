@@ -4,12 +4,6 @@
 
 <div class="user-details">
 
-    {{#if controller.isCurrentUser}}
-      {{#link-to 'user.edit' model class="pull-right"}}
-        {{fa-icon "pencil" size="1"}}
-      {{/link-to}}
-    {{/if}}
-
     <dl class="base-data">
       <dt>Name:</dt>    <dd>{{model.fullName}}</dd>
       <dt>Email:</dt>   <dd>{{model.email}}</dd>
@@ -21,6 +15,12 @@
     </dl>
      <br>
 
-
+    {{#if controller.isCurrentUser}}
+      <p class='right-text'>
+      {{#link-to 'user.edit' model}}
+        edit {{fa-icon "pencil" size="1"}}
+      {{/link-to}}
+      </p>
+    {{/if}}
 
 </div>
