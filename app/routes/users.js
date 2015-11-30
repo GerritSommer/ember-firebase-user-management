@@ -1,5 +1,9 @@
 import Ember from 'ember';
 let saveUserCallback  = function( user ) {
+  if ( user.get('isNew') ) {
+    user.update();
+  }
+
   user.save()
     .then((savedUser)=> {
       this.transitionTo( 'user.index', savedUser );
