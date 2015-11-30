@@ -60,6 +60,10 @@ export default DS.Model.extend(ValidationsMixin, {
     }
   }),
 
+  update: function() {
+    this.set('updatedAt', now());
+  },
+
   computedValidations: {
     firstName: {
       firstNameNotEmpty: 'First name is required.'
@@ -80,7 +84,7 @@ export default DS.Model.extend(ValidationsMixin, {
 
   // observers
   setUpdatedAt: function() {
-    this.set('updatedAt', now());
+    this.update()
   }.on('didUpdate'),
 
 });
