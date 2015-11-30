@@ -9,7 +9,7 @@
 
   .users-list-container {
     position: relative;
-    margin-top: 20px;
+    margin-top: 0.5em;
     width: auto;
     height: 100%;
     overflow: hidden;
@@ -25,7 +25,7 @@
         padding: 1em 0;
 
         .fa-chevron-up {
-          color: #aaa;
+          color: $middle-grey;
           display: none;
         }
       }
@@ -56,6 +56,7 @@
       padding: 1em 1.5em;
       position: relative;
       color: $middle-grey;
+      border-top: 1px solid $light-grey;
 
       &:not(.active):hover {
         background: $light-grey;

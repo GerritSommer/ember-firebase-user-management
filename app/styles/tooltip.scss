@@ -39,10 +39,12 @@ span.tooltip {
 
 .alert.active {
   position: fixed; /* or absolute */
-  top: 50%;
-  left: 50%;
+  top: 4em;
+  width: 100%;
+  text-align: center;
   box-shadow: 0px 4px 10px -2px #000;
   background: #f4f4f4;
+  opacity: 0.5;
   border: 1px solid $middle-grey;
   padding: 1em;
 

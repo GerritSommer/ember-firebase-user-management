@@ -72,23 +72,23 @@ b {
 }
 
 .grey-text {
-  color: #999999;
+  color: $middle-grey;
 }
 
 .orange-text {
-  color: #c09853;
+  color: $orange;
 }
 
 .red-text {
-  color: #b94a48;
+  color: $red;
 }
 
 .blue-text {
-  color: #3a87ad;
+  color: $blue;
 }
 
 .green-text {
-  color: #468847;
+  color: $green;
 }
 
 small {
@@ -103,6 +103,9 @@ small {
   text-align: left;
 }
 
+.justify-text {
+  text-align: justify;
+}
 .right-text {
   text-align: right;
 }
