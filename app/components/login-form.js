@@ -29,19 +29,21 @@ export default Ember.Component.extend({
 
 
   actions: {
+
     login: function()  {
-      var self = this;
 
-      var success = function() {
-        self.flashMessages.success('Welcome, you are logged in!', { timeout: 3000 });
-        self.set('open', false);
+      var success = ()=> {
+        this.flashMessages.success('Welcome, you are logged in!', { timeout: 3000 });
+        this.set('open', false);
       }
 
-      var fail = function(error) {
-        self.flashMessages.danger('Bad credentials!', { timeout: 3000 });
+      var fail = (error)=> {
+        this.flashMessages.danger('Bad credentials!', { timeout: 3000 });
       }
 
-      this.get('authentication').login( this.get('email'), this.get('password'), success, fail );
+      this.get('authentication').login( this.get('email'), this.get('password'))
+        .then(this.get('authentication').findOrCreateUser)
+        .catch();
     },
 
     logout: function() {

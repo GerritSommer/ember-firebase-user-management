@@ -17,43 +17,61 @@ export default Ember.Object.extend({
   init: function() {
     this.get('firebaseAdapter').onAuth((data)=> {
       this.set( 'isAuthenticating', false );
+
       if ( !data ) {
         this.set( 'currentUser', null );
-        var router = this.container.lookup('router:main');
+        let router = this.container.lookup('router:main');
         router.transitionTo('/');
       } else {
-        this.store.findRecord('user', data.uid ).then((user)=> {
-          this.set( 'currentUser', user );
-        }, (error)=> {
-          this.store.createRecord('user', {
-            id:    data.uid,
-            email: data.password.email
-          }).save().then((user) => {
-            this.set( 'currentUser', user );
-          });
-        });
+       this.findOrCreateUser(data);
       }
+
     });
+  },
+
+  setCurrentUser(user) {
+   this.set( 'currentUser', user );
+  },
+
+  findOrCreateUser(data) {
+   this.store.findRecord('user', data.uid )
+     .then((user)=> {
+       this.setCurrentUser(user);
+     })
+     .catch((error)=> {
+       this.store.createRecord('user', {
+         id:    data.uid,
+         email: data.password.email
+       }).save().then((user) => {
+         this.setCurrentUser(user);
+       });
+     });
+
   },
 
   login: function( email, password, success, fail ) {
     this.set( 'isAuthenticating', true );
+
     if ( !email || !password ) {
       this.set( 'isAuthenticating', false );
       return;
     }
 
-    this.get('firebaseAdapter').authWithPassword({
-      email:    email,
-      password: password
-    }, (error, data)=> {
-      this.set( 'isAuthenticating', false );
-      if (error) {
-        fail(error);
-      } else {
-        success();
-      }
+    return new Ember.RSVP.Promise((resolve, reject, always)=> {
+      this.get('firebaseAdapter').authWithPassword({
+        email:    email,
+        password: password
+      }, (error, data)=> {
+        this.set('isAuthenticating', false );
+        if (error) {
+          if ( typeof reject  === 'function' ) { reject(error); }
+        } else {
+          if ( typeof resolve === 'function' ) { resolve(data); }
+        }
+        if   ( typeof always  === 'function' ) { always(); }
+      });
     });
+
   },
 
   logout: function(){
