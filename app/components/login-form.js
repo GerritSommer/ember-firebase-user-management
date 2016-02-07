@@ -1,4 +1,4 @@
-import Ember from 'ember';
+ import Ember from 'ember';
 import User from 'fire/models/user';
 
 export default Ember.Component.extend({
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    this.$().unbind('mouseup');
+    $(document).unbind('mouseup');
   },
 
 
