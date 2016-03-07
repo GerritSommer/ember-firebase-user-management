@@ -1,13 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+let Route = Ember.Route;
+let isArray = Ember.isArray;
 
-  model: function(params) {
+export default Route.extend({
+
+  model(params) {
     return this.store.findRecord('user', params.user_id);
   },
 
   // close the previous outlet if the id changes, to avoid open templates not represented in the url
-  renderTemplate: function( controller, model ) {
+  renderTemplate(controller, model) {
     let oldModelId, oldModelIdUrl = this.get('router.url').match(/\/(-[^\/]*)/);
 
     // Get the :user_id from the current url to find out its the one to be used

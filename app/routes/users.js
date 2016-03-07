@@ -1,4 +1,7 @@
 import Ember from 'ember';
+
+let Route = Ember.Route;
+
 let saveUserCallback  = function( user ) {
   if ( user.get('isNew') ) {
     user.update();
@@ -13,7 +16,7 @@ let saveUserCallback  = function( user ) {
     });
 };
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   createAuthenticatedUser: function( user, callback ) {
     let firebase = this.store.adapterFor('application').get('firebase');

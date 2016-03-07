@@ -1,7 +1,11 @@
- import Ember from 'ember';
+import Ember from 'ember';
 import User from 'fire/models/user';
 
-export default Ember.Component.extend({
+let Component = Ember.Component;
+let inject    = Ember.inject;
+let alias     = Ember.computed.alias;
+
+export default Component.extend({
   tagName:            'div',
   classNames:         [ 'profile' ],
   classNameBindings:  [ 'open' ],
@@ -9,10 +13,10 @@ export default Ember.Component.extend({
   email:              null,
   password:           null,
 
-  authentication:     Ember.inject.service(),
+  authentication:     inject.service(),
 
-  isLoggedIn:         Ember.computed.alias('authentication.isLoggedIn'),
-  isAuthenticating:   Ember.computed.alias('authentication.isAuthenticating'),
+  isLoggedIn:         alias('authentication.isLoggedIn'),
+  isAuthenticating:   alias('authentication.isAuthenticating'),
 
   didInsertElement() {
     $(document).mouseup((event)=> {
@@ -27,34 +31,37 @@ export default Ember.Component.extend({
     $(document).unbind('mouseup');
   },
 
-
   actions: {
-    login: function()  {
+    login()  {
       var self = this;
 
-      var success = function() {
+      let success = function() {
         self.flashMessages.success('Welcome, you are logged in!', { timeout: 3000 });
         self.set('open', false);
       }
 
-      var fail = function(error) {
+      let fail = function(error) {
         self.flashMessages.danger('Bad credentials!', { timeout: 3000 });
       }
 
       this.get('authentication').login( this.get('email'), this.get('password'), success, fail );
+      return;
     },
 
     logout: function() {
       this.get('authentication').logout();
+      return;
     },
 
     toggleDropdown: function()   {
       this.toggleProperty('open');
+      return;
     },
 
     goToProfile: function() {
       this.set('open', false);
       this.sendAction( 'action', this.get('authentication.currentUser') );
+      return;
     }
 
   }

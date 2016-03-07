@@ -1,9 +1,9 @@
 // app/routes/application.js
 import Ember from 'ember';
 
-var uid
+let Route = Ember.Route;
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   actions: {
 

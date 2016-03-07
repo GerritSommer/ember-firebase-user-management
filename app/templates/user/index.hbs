@@ -13,12 +13,11 @@
       <dt>Created at:</dt> <dd>{{model.createdAtDate}}</dd>
       <dt>Updated at:</dt>  <dd>{{model.updatedAtDate}}</dd>
     </dl>
-     <br>
 
     {{#if controller.isCurrentUser}}
-      <p class='right-text'>
+      <p>
       {{#link-to 'user.edit' model}}
-        edit {{fa-icon "pencil" size="1"}}
+        <div class='right-text'>edit {{fa-icon "pencil" size="1"}}</div>
       {{/link-to}}
       </p>
     {{/if}}

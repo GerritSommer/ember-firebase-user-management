@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+let Component = Ember.Component;
+
+export default Component.extend({
   tagName:    'span',
   classNames: 'tooltip'
 });

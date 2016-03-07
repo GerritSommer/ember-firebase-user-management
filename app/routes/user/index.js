@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+let Route = Ember.Route;
+
+export default Route.extend({
 
   model: function(params) {
     return this.modelFor('user')

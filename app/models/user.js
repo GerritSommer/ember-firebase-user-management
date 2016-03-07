@@ -3,14 +3,18 @@ import Ember from 'ember';
 import ValidationsMixin from 'ember-computed-validations/mixins/computed-validations';
 import momentFormat from 'ember-moment/computeds/format';
 
-var attr    = DS.attr;
-var hasMany = DS.hasMany;
+let Model    = DS.Model;
+let attr     = DS.attr;
+let hasMany  = DS.hasMany;
+let computed = Ember.computed;
+let notEmpty = Ember.computed.notEmpty;
+let match    = Ember.computed.match;
 
-var now = function() {
+let now = function() {
   return new Date().getTime();
 }
 
-export default DS.Model.extend(ValidationsMixin, {
+export default Model.extend(ValidationsMixin, {
   // Data attributes
   type:             attr('string', { defaultValue: 'baseUser' }),
   firstName:        attr('string'),
@@ -33,34 +37,35 @@ export default DS.Model.extend(ValidationsMixin, {
   createdAtDate: momentFormat('createdAt', 'DD.MM.YYYY HH:mm'),
   updatedAtDate: momentFormat('updatedAt', 'DD.MM.YYYY HH:mm'),
 
-  fullName: Ember.computed('firstName', 'lastName', function() {
+  fullName: computed('firstName', 'lastName', function() {
     return this.get('firstName') + ' ' + this.get('lastName');
   }),
 
-  outletRepresentation: Ember.computed('id', function() {
+  outletRepresentation: computed('id', function() {
     return 'user-outlet-' + this.get('id')
   }),
-  // Validation properties
-  firstNameNotEmpty:  Ember.computed.notEmpty('firstName'),
-  lastNameNotEmpty:   Ember.computed.notEmpty('lastName'),
-  passwordNotEmpty:   Ember.computed.notEmpty('password'),
-  emailIsEmail:       Ember.computed.match('email', /^.+@.+\..+$/),
 
-  shouldHaveEmail:    Ember.computed('isNew', 'email', function() {
-    if (this.get('isNew')) {
+  // Validation properties
+  firstNameNotEmpty:  notEmpty('firstName'),
+  lastNameNotEmpty:   notEmpty('lastName'),
+  passwordNotEmpty:   notEmpty('password'),
+  emailIsEmail:       match('email', /^.+@.+\..+$/),
+
+  shouldHaveEmail:    computed('isNew', 'email', function() {
+    if ( his.get('isNew') ) {
       return this.get('emailIsEmail');
     } else {
       return true;
     }
   }),
 
-  passwordsMatch:     Ember.computed('password1', 'password2', function() {
-    if (this.get('isNew')) {
+  passwordsMatch:     computed('password1', 'password2', function() {
+    if ( this.get('isNew') ) {
       return this.get('password') === this.get('repeatedPassword');
     }
   }),
 
-  update: function() {
+  update() {
     this.set('updatedAt', now());
   },
 

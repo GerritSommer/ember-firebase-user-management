@@ -1,14 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+let Route = Ember.Route;
+
+export default Route.extend({
   templateName: 'user/form',
 
-  model: function(params) {
+  model:(params) {
     return this.modelFor('user');
   },
 
   actions: {
-    cancel: function(user) {
+    cancel(user) {
       user.rollback();
       this.transitionTo('users')
     },

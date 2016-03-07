@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember  from 'ember';
 import config from './config/environment';
 
 var Router = Ember.Router.extend({
@@ -6,11 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
   this.route('users', function() {
     this.route('new');
+
     this.route('user', { resetNamespace: true,  path: '/:user_id' }, function() {
       this.route('edit');
     });
+
   });
 
   this.route('posts', function() {});

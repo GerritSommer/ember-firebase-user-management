@@ -1,18 +1,20 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+let Route = Ember.Route;
+
+export default Route.extend({
 
   actions: {
 
-    save: function( post ) {
+    save(post) {
       post
       .save()
-      .then( (post)=> {
+      .then((post)=> {
         this.transitionTo('post', post);
       });
     },
 
-    cancel: function( post ) {
+    cancel(post) {
       post.rollback();
       this.transitionTo('posts.index');
     }

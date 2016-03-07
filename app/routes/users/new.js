@@ -1,16 +1,19 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
-  templateName:   'user/form',
-  authentication: Ember.inject.service(),
+let Route = Ember.Route;
+let service = Ember.inject.service;
 
-  model: function() {
+export default Route.extend({
+  templateName:   'user/form',
+  authentication: service(),
+
+  model() {
     return this.store.createRecord('user');
   },
 
   actions: {
 
-    cancel: function(user) {
+    cancel(user) {
       this.store.unloadRecord(user);
       this.transitionTo('users')
     }

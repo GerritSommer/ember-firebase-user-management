@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+let Controller = Ember.Controller;
 
-});
+export default Controller.extend({});

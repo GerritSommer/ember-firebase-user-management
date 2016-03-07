@@ -1,16 +1,18 @@
-import Ember from 'ember';
-import DS from 'ember-data';
+import Ember            from 'ember';
+import DS               from 'ember-data';
 import ValidationsMixin from 'ember-computed-validations/mixins/computed-validations';
-import momentFormat from 'ember-moment/computeds/format';
+import momentFormat     from 'ember-moment/computeds/format';
 
-var attr      = DS.attr;
-var belongsTo = DS.belongsTo;
+let Model     = DS.Model;
+let attr      = DS.attr;
+let belongsTo = DS.belongsTo;
+let notEmpty  = Ember.computed.notEmpty;
 
-var now = function() {
+let now = function() {
   return new Date().getTime();
 }
 
-export default DS.Model.extend(ValidationsMixin, {
+export default Model.extend(ValidationsMixin, {
   // Data attributes
   title:     attr('string'),
   body:      attr('string'),
@@ -25,8 +27,8 @@ export default DS.Model.extend(ValidationsMixin, {
   updatedAtDate: momentFormat('updatedAt', 'DD.MM.YYYY HH:mm'),
 
   // Validation properties
-  titleNotEmpty:  Ember.computed.notEmpty('firstName'),
-  bodyNotEmpty:   Ember.computed.notEmpty('lastName'),
+  titleNotEmpty:  notEmpty('firstName'),
+  bodyNotEmpty:   notEmpty('lastName'),
 
   computedValidations: {
     title: {
