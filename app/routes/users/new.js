@@ -15,7 +15,7 @@ export default Route.extend({
 
     cancel(user) {
       this.store.unloadRecord(user);
-      this.transitionTo('users')
+      this.transitionTo('users');
     }
   }
 

@@ -5,14 +5,14 @@ let Route = Ember.Route;
 export default Route.extend({
   templateName: 'user/form',
 
-  model:(params) {
+  model() {
     return this.modelFor('user');
   },
 
   actions: {
     cancel(user) {
       user.rollback();
-      this.transitionTo('users')
+      this.transitionTo('users');
     },
   }
 });

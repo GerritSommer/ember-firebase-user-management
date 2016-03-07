@@ -1,5 +1,5 @@
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
-  pathForType: function() { return 'users' }
+  pathForType: function() { return 'users'; }
 });

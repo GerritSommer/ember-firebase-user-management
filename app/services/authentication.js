@@ -1,14 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.Object.extend({
+let Objekt   = Ember.Object;
+let computed = Ember.computed;
+
+export default Objekt.extend({
   isAuthenticating: false,
   currentUser:      null,
 
-  firebaseAdapter: Ember.computed(function() {
-    return this.store.adapterFor('application').get('firebase')
+  firebaseAdapter: computed(function() {
+    return this.store.adapterFor('application').get('firebase');
   }),
 
-  isLoggedIn: Ember.computed('currentUser', function(){
+  isLoggedIn: computed('currentUser', function(){
     if ( this.get('firebaseAdapter').getAuth() ) {
       return true;
     }
@@ -24,7 +27,7 @@ export default Ember.Object.extend({
       } else {
         this.store.findRecord('user', data.uid ).then((user)=> {
           this.set( 'currentUser', user );
-        }, (error)=> {
+        }, ()=> {
           this.store.createRecord('user', {
             id:    data.uid,
             email: data.password.email
@@ -46,7 +49,7 @@ export default Ember.Object.extend({
     this.get('firebaseAdapter').authWithPassword({
       email:    email,
       password: password
-    }, (error, data)=> {
+    }, (error)=> {
       this.set( 'isAuthenticating', false );
       if (error) {
         fail(error);

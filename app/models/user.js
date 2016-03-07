@@ -52,7 +52,7 @@ export default Model.extend(ValidationsMixin, {
   emailIsEmail:       match('email', /^.+@.+\..+$/),
 
   shouldHaveEmail:    computed('isNew', 'email', function() {
-    if ( his.get('isNew') ) {
+    if ( this.get('isNew') ) {
       return this.get('emailIsEmail');
     } else {
       return true;

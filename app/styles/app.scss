@@ -84,7 +84,7 @@ blockquote {
 .panel {
   margin: 2em;
   background-color: #fff;
-  border: 1px solid #e9e9e9;
+  border: 1px solid $light-grey;
   border-radius: 0;
   margin-bottom: 25px;
   box-shadow: 0 1px 1px rgba(0,0,0,.05);
@@ -146,5 +146,20 @@ aside {
     vertical-align: top;
     display: inline-block;
     width: 24.5%;
+  }
+}
+
+@for $i from 1 through 8 {
+  .m-t-#{$i} {
+      margin-top: #{$i}em;
+  }
+  .m-b-#{$i} {
+      margin-bottom: #{$i}em;
+  }
+  .m-l-#{$i} {
+      margin-left: #{$i}em;
+  }
+  .m-r-#{$i} {
+      margin-right: #{$i}em;
   }
 }
