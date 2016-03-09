@@ -1,4 +1,4 @@
-<header>
+{{!-- <header>
 
   <nav class="col">
     <ul>
@@ -8,7 +8,6 @@
         {{/link-to}}
       </li>
       <li>
-        {{#link-to 'posts'}} Posts {{/link-to}}
       </li>
       {{#if authentication.isLoggedIn}}
         <li>
@@ -22,4 +21,26 @@
     <i class="fa fa-bars"></i>
   </nav>
 
-</header>
+</header> --}}
+  <nav class="ui secondary pointing menu nav nav--site">
+
+    {{#link-to "index" class="inverted orange item"}}
+      sommer
+    {{/link-to}}
+
+    {{#link-to 'posts' class="inverted green item"}}
+      Posts
+    {{/link-to}}
+
+    {{#if authentication.isLoggedIn}}
+      {{#link-to "users" class="inverted blue item"}}
+        Users
+      {{/link-to}}
+    {{/if}}
+
+
+    <div class="right menu">
+      {{login-form authentication=authentication action='goToProfile' class="item"}}
+
+    </div>
+  </nav>

@@ -48,6 +48,7 @@
     "ember-idx-wysiwyg": "^0.1.2",
     "ember-moment": "4.1.0",
     "emberfire": "1.5.0",
+    "semantic-ui-ember": "0.9.3",
     "torii": "0.6.0"
   }
 }

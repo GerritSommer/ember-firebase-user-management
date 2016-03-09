@@ -1,35 +1,29 @@
-<div class="panel">
-  <div class="body">
-
-    {{#each model as |post|}}
-      <article class="three-quarter">
-
-        {{#if authentication.isLoggedIn}}
-          {{#link-to 'post.edit' post class="pull-right"}}
-            <small>edit {{fa-icon "pencil" size="1"}}</small>
-          {{/link-to}}
-        {{/if}}
-
-        <h3>
-          {{#link-to 'post.index' post}}
-            {{post.title}}
-          {{/link-to}}
-        </h3>
-        <hr>
-        <div class="post-body justify-text">
-          {{{post.body}}}
-        </div>
-
-      </article>
-
-    {{/each}}
-
-    <aside class="quarter">
-      <p>
-        <h4>sidebar</h4>
-
-      </p>
-    </aside>
-
+<div class="ui segments">
+  <div class="ui segment">
+    All posts
   </div>
+  {{#each model as |post|}}
+
+    <div class="ui green segment">
+      {{#if authentication.isLoggedIn}}
+        {{#link-to 'post.edit' post class="ui green right floated basic button" tagName='button'}}
+          <i class="ui icon write"></i> Edit
+        {{/link-to}}
+      {{/if}}
+
+      {{#link-to 'post.index' post class="ui green header" tagName="h3"}}
+        {{post.title}}
+      {{/link-to}}
+
+      <hr>
+
+      {{{post.body}}}
+
+    </div>
+
+
+  {{/each}}
 </div>
+
+
+

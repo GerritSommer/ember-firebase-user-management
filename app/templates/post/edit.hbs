@@ -1,49 +1,94 @@
-<div class="panel">
-  <div class="body">
+<div class="ui segment">
 
-    <form>
-      <label>
-        Title
+  <form class="ui form">
+
+      <div class="ui dividing header">
+        Edit "{{model.title}}"
+      </div>
+
+      <div class="field">
+        <label>
+          Post title:
+        </label>
         {{input type=text value=model.title}}
-      </label>
+      </div>
 
-      <br>
+
+
+    <div class="field">
+      <label>Post body:</label>
 
       {{#em-wysiwyg configName="bs" as_html=model.body}}
 
-        {{#em-wysiwyg-toolbar}}
-          {{em-wysiwyg-action command="bold" title="Bold (Ctrl/Cmd+B)" icon="fa fa-bold"}}
-          {{em-wysiwyg-action command="italic" title="Italic (Ctrl/Cmd+I)" icon="fa fa-italic"}}
-          {{em-wysiwyg-action-format icon="fa fa-text-height"}}
-          {{em-wysiwyg-action command="justifyleft" title="Align Left (Ctrl/Cmd+L)" icon="fa fa-align-left"}}
-          {{em-wysiwyg-action command="justifyright" title="Align Right (Ctrl/Cmd+R)" icon="fa fa-align-right"}}
-          {{em-wysiwyg-action command="undo" title="Undo(Ctrl/Cmd+Z)" icon="fa fa-undo"}}
-          {{em-wysiwyg-action command="redo" title="Redo (Ctrl/Cmd+Y)" icon="fa fa-repeat"}}
-          {{em-wysiwyg-action-link title="Insert Link" icon="fa fa-link"}}
+        {{#em-wysiwyg-toolbar class="ui tiny basic icon buttons"}}
+          {{em-wysiwyg-action
+            command="bold"
+            title="Bold (Ctrl/Cmd+B)"
+            icon="fa fa-bold"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action
+            command="italic"
+            title="Italic (Ctrl/Cmd+I)"
+            icon="fa fa-italic"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action-format
+            icon="fa fa-text-height"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action
+            command="justifyleft"
+            title="Align Left (Ctrl/Cmd+L)"
+            icon="fa fa-align-left"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action
+            command="justifyright"
+            title="Align Right (Ctrl/Cmd+R)"
+            icon="fa fa-align-right"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action
+            command="undo"
+            title="Undo(Ctrl/Cmd+Z)"
+            icon="fa fa-undo"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action
+            command="redo"
+            title="Redo (Ctrl/Cmd+Y)"
+            icon="fa fa-repeat"
+            class="ui button"
+          }}
+          {{em-wysiwyg-action-link
+            title="Insert Link"
+            icon="fa fa-link"
+            class="ui button"
+          }}
         {{/em-wysiwyg-toolbar}}
 
         {{em-wysiwyg-editor}}
 
-      <div class="text-right">
-
-        <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
-          Cancel
-        </button>
-
-        <button class="blue" {{action 'save' model}} disabled={{model.isSaving}}>
-          {{#if model.isSaving}}
-            <i class="icon-refresh icon-spin"></i>
-          {{else}}
-            Save
-          {{/if}}
-        </button>
-
-      </div>
-
-    {{/em-wysiwyg}}
+      {{/em-wysiwyg}}
+    </div>
 
 
-    </form>
 
-  </div>
+  <button class="ui small red basic button" {{action 'cancel' model}} disabled={{model.isSaving}}>
+    Cancel
+  </button>
+
+  <button class="ui small blue basic button" {{action 'save' model}} disabled={{model.isSaving}}>
+    {{#if model.isSaving}}
+      <i class="icon-refresh icon-spin"></i>
+    {{else}}
+      Save
+    {{/if}}
+  </button>
+
+
+  </form>
+
+
 </div>

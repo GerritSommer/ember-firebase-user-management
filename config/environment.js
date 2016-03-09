@@ -7,7 +7,9 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' https://scorching-torch-4275.firebaseio.com https://auth.firebase.com wss://*.firebaseio.com https://s-usc1c-nss-149.firebaseio.com",
       'img-src': "'self' http://www.gravatar.com/",
-      'style-src': "'self' 'unsafe-inline'  localhost:4200"
+      'style-src': "'self' 'unsafe-inline'  localhost:4200",
+      'font-src': "'self' data: http://fonts.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
     },
     firebase: 'https://scorching-torch-4275.firebaseio.com/',
     torii: {

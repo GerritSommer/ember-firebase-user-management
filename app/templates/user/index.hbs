@@ -1,25 +1,69 @@
-<div class="chevron-container" {{action 'gotoUsers'}}>
-  {{fa-icon "chevron-up" size="1" }}
-</div>
+<div class="ui grid">
 
-<div class="user-details">
+  <div class="six wide column">
+    <div class="ui card">
 
-    <dl class="base-data">
-      <dt>Name:</dt>    <dd>{{model.fullName}}</dd>
-      <dt>Email:</dt>   <dd>{{model.email}}</dd>
-    </dl>
+      <div class="image">
+         {{gravatar-image
+           email=user.email
+           title=user.fullName
+           defaultImage='mm'
+           secure=false
+           size=200
+         }}
+      </div>
 
-    <dl>
-      <dt>Created at:</dt> <dd>{{model.createdAtDate}}</dd>
-      <dt>Updated at:</dt>  <dd>{{model.updatedAtDate}}</dd>
-    </dl>
+      <div class="content">
 
-    {{#if controller.isCurrentUser}}
+        <a class="header">
+          {{model.fullName}}
+        </a>
+
+        <div class="meta">
+          <span class="date">
+            {{capitalize model.type}}
+          </span>
+        </div>
+       {{!--  <div class="description">
+          Kristy is an art director living in New York.
+        </div> --}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ten wide column">
+
+    <h5 class="ui top attached orange segment">
+      Email:
+    </h5>
+    <div class="ui attached segment">
+      <p>{{model.email}}</p>
+    </div>
+
+    <h5 class="ui attached header">
+      Created at:
+    </h5>
+    <div class="ui attached segment">
+      <p>{{model.createdAtDate}}</p>
+    </div>
+
+    <h5 class="ui attached header">
+      Updated at:
+    </h5>
+    <div class="ui attached segment">
+      <p>{{model.createdAtDate}}</p>
+    </div>
+
+    <h5 class="ui attached header">
+      Summary
+    </h5>
+    <div class="ui attached segment">
       <p>
-      {{#link-to 'user.edit' model}}
-        <div class='right-text'>edit {{fa-icon "pencil" size="1"}}</div>
-      {{/link-to}}
+        {{model.fullName}} has written {{model.posts.length}} post(s).
       </p>
-    {{/if}}
+    </div>
+
+  </div>
 
 </div>

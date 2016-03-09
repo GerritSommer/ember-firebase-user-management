@@ -38,12 +38,14 @@ export default Model.extend(ValidationsMixin, {
   updatedAtDate: momentFormat('updatedAt', 'DD.MM.YYYY HH:mm'),
 
   fullName: computed('firstName', 'lastName', function() {
-    return this.get('firstName') + ' ' + this.get('lastName');
+    if ( this.get('firstName') && this.get('lastName') ) {
+      return this.get('firstName') + ' ' + this.get('lastName');
+    }
   }),
 
-  outletRepresentation: computed('id', function() {
-    return 'user-outlet-' + this.get('id')
-  }),
+  // outletRepresentation: computed('id', function() {
+  //   return 'user-outlet-' + this.get('id')
+  // }),
 
   // Validation properties
   firstNameNotEmpty:  notEmpty('firstName'),

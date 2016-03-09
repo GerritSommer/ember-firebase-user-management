@@ -1,0 +1,45 @@
+<div class="ui blue top attached segment">
+
+  <div class="ui smaller icon input">
+    <i class="search icon"></i>
+    {{input type=text value=searchQuery placeholder="Search by name"}}
+  </div>
+
+</div>
+
+{{#each filteredUsers as |user|}}
+  <div class="ui attached segment items">
+
+    <div class="item">
+      <div class="ui mini circular image">
+        {{gravatar-image
+          email=user.email
+          title=user.fullName
+          defaultImage='mm'
+          class='img-circle'
+          secure=false
+          size=100
+        }}
+      </div>
+
+      <div class="middle aligned content">
+        <div class="tiny header">
+          {{#link-to 'user.index' user class="text__smaller"}}
+            {{user.fullName}}
+          {{/link-to}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{{else}}
+  <div class="ui attached segment items">
+    No users...
+  </div>
+{{/each}}
+
+<div class="ui bottom attached segment">
+  {{filteredUsers.length}} Users found.
+</div>
+

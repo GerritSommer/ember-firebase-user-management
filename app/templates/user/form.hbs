@@ -1,47 +1,57 @@
+<div class="ui segment">
 
-<form class="users-form">
+<form class="ui form">
 
-  <div class="row">
+  <h4 class="ui dividing header">Edit account</h4>
 
+  <div class="field">
+        <div class="two fields">
 
-  <fieldset class="column w25">
-    <legend>Base data</legend>
-    <label>
-      <span class="label">first name:</span>
-      {{validated-input
-        type='text'
-        value=model.firstName
-        placeholder="First name"
-        showErrors=model.showErrors
-        errors=model.computedErrors.firstName
-      }}
-      {{#if model.showErrors}}
+      <div class="field">
+
+        <label>First name</label>
+        {{validated-input
+          type='text'
+          value=model.firstName
+          placeholder="First name"
+          showErrors=model.showErrors
+          errors=model.computedErrors.firstName
+        }}
+      </div>
+
+      <div class="field">
+
+        <label>Last name</label>
+        {{validated-input
+          type='text'
+          value=model.lastName
+          placeholder="Last name"
+          showErrors=model.showErrors
+          errors=model.computedErrors.lastName
+        }}
+      </div>
+
+    </div>
+  </div>
+
+{{!--       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.firstName}}
         </small>
-      {{/if}}
-    </label>
+      {{/if}} --}}
 
-    <label>
-      <span class="label">last name:</span>
-      {{validated-input
-        type='text'
-        value=model.lastName
-        placeholder="Last name"
-        showErrors=model.showErrors
-        errors=model.computedErrors.lastName
-      }}
 
-      {{#if model.showErrors}}
+
+
+{{!--       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.lastName}}
         </small>
-      {{/if}}
+      {{/if}} --}}
 
-    </label>
 
-    <label>
-      <span class="label">email:</span>
+    <div class="field">
+      <label>Email</label>
       {{validated-input
         type='text'
         value=model.email
@@ -49,18 +59,14 @@
         showErrors=model.showErrors
         errors=model.computedErrors.email
       }}
-      {{#if model.showErrors}}
+    </div>
+{{!--       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.email}}
         </small>
-      {{/if}}
-    </label>
-  </fieldset>
+      {{/if}} --}}
 
-  <fieldset class="column 25">
-    <legend>Password </legend>
-    <label>
-      <span class="label">password:</span>
+
       {{validated-input
         type='text'
         value=model.password
@@ -69,15 +75,12 @@
         errors=model.computedErrors.password
         disabled=true
       }}
-      {{#if model.showErrors}}
+{{!--       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.password}}
         </small>
-      {{/if}}
-    </label>
+      {{/if}} --}}
 
-    <label>
-      <span class="label">repeat password:</span>
       {{validated-input
         type='text'
         value=model.repeatedPassword
@@ -86,18 +89,17 @@
         errors=model.computedErrors.repeatedPassword
         disabled=true
       }}
-      {{#if model.showErrors}}
+{{!--       {{#if model.showErrors}}
         <small class="errors">
           {{array-to-sentence model.computedErrors.repeatedPassword}}
         </small>
-      {{/if}}
-    </label>
+      {{/if}} --}}
+
+
     <small>*disabled for the moment</small>
 
-  </fieldset>
-</div>
 
-  <div class="text-right m-b-1">
+  <div class="text-right margin__bottome__1">
     <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
       Cancel
     </button>
@@ -111,3 +113,5 @@
   </div>
 
 </form>
+
+</div>

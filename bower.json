@@ -19,6 +19,7 @@
     "moment-timezone": ">= 0.1.0",
     "pretender": "~0.10.1",
     "lodash": "~3.7.0",
-    "Faker": "~3.0.0"
+    "Faker": "~3.0.0",
+    "semantic-ui": "~2.1.8"
   }
 }
