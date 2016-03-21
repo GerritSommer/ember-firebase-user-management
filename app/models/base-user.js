@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 
-let attr = DS.attr;
+let Model = DS.Model;
+let attr  = DS.attr;
 
-export default DS.Model.extend({});
+export default Model.extend({});

@@ -1,165 +1,28 @@
-@import "reset";
 @import "variables";
-@import "helpers";
-@import "grid";
-@import "fonts";
-@import "header";
-@import "footer";
-@import "forms";
-@import "users";
-@import "login";
-@import "tooltip";
-@import "modal";
-
+@import "bootstrap";
 @import "bower_components/font-awesome/scss/font-awesome";
 
-/*  General CSS  */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+@import "helpers";
+@import "fonts";
+@import "forms";
 
-body {
-  background: #f4f4f4;
-  margin: 0;
-  font-family: "raleway-regular", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  font-size: 16px;
-}
+@import "navigation";
+@import "login";
+@import "article";
+@import "tables";
 
-// Secondary font: Georgia, Times, "Times New Roman", serif;
+// @import "footer";
+// @import "forms";
+// @import "users";
+// @import "tooltip";
+// @import "modal";
 
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before, .clearfix:after, .row:before, .row:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after, .row:after {
-  clear: both;
-}
-
-
-a {
-  color: $blue;
-  text-decoration: none;
-  transition: 150ms linear;
-
-  &:hover,
-  &:focus {
-    color: #3091B2;
-    text-decoration: none;
-  }
-}
-
-ul {
-  list-style-type: none;
-
-  li {
-    font-size: 0.9em;
-    margin-left: 0.5em;
-  }
-
-}
-
-p, .post-body {
-  color: $middle-grey;
-  font-family: "raleway-regular", arial;
-  font-size: 0.9em;
-  line-height: 30px;
-  letter-spacing: 1px;
-}
-
-blockquote {
-  border-left: 0.2em solid $light-grey;
-  font-style: italic;
-}
-
-
+// cursor for all elements that trigger an ember action
 [data-ember-action] {
   cursor: pointer;
 }
 
-.panel {
-  margin: 2em;
-  background-color: #fff;
-  border: 1px solid $light-grey;
-  border-radius: 0;
-  margin-bottom: 25px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
-
-  > .header {
-    padding: 20px;
-    overflow: hidden;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border: 0!important;
-    height: 55px;
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-  }
-
-  > .body {
-    min-height: 1em;
-    padding: 1em 2.5em;
-    // margin: 0.5em;
-  }
-
-}
-
-
-
-dl {
-  line-height: 20px;
-  dt {
-    font-size: 0.8em;
-    font-weight: bolder;
-  }
-  dd {
-    margin-left: 0.5em;
-    margin-bottom: 0.2em;
-  }
-}
-
-
-article {
-  margin-bottom: 1.5em;
-  padding-bottom: 1em;
-
-
-  &.three-quarter {
-    display: inline-block;
-    width: 74.5%;
-  }
-
-  p {
-    line-height: 1.2em;
-    margin-bottom: 0.5em;
-  }
-}
-
-aside {
-  padding: 1em;
-  &.quarter {
-    vertical-align: top;
-    display: inline-block;
-    width: 24.5%;
-  }
-}
-
-@for $i from 1 through 8 {
-  .m-t-#{$i} {
-      margin-top: #{$i}em;
-  }
-  .m-b-#{$i} {
-      margin-bottom: #{$i}em;
-  }
-  .m-l-#{$i} {
-      margin-left: #{$i}em;
-  }
-  .m-r-#{$i} {
-      margin-right: #{$i}em;
-  }
+// To limit the width on ultra wide screens
+.container-fluid {
+  max-width: 1600px;
 }

@@ -21,9 +21,9 @@ export default Model.extend(ValidationsMixin, {
   lastName:         attr('string'),
   email:            attr('string'),
   gravatarLink:     attr('string'),
-
-  createdAt:        attr('date', { defaultValue: function() { now() } }),
-  updatedAt:        attr('date', { defaultValue: function() { now() } }),
+  defaultGravatar:  attr('string', { defaultValue: function() { return 'mm' } }),
+  createdAt:        attr('date',   { defaultValue: function() { now() } }),
+  updatedAt:        attr('date',   { defaultValue: function() { now() } }),
 
   // Relations
   posts:            hasMany('post', { async: true }),
@@ -52,17 +52,12 @@ export default Model.extend(ValidationsMixin, {
   emailIsEmail:       match('email', /^.+@.+\..+$/),
 
   shouldHaveEmail:    computed('isNew', 'email', function() {
-    if ( this.get('isNew') ) {
-      return this.get('emailIsEmail');
-    } else {
-      return true;
-    }
+    this.get('isNew') ? this.get('emailIsEmail') : true;
   }),
 
   passwordsMatch:     computed('password1', 'password2', function() {
-    if ( this.get('isNew') ) {
-      return this.get('password') === this.get('repeatedPassword');
-    }
+    if ( this.get('isNew') ) return;
+    return this.get('password') === this.get('repeatedPassword');
   }),
 
   update() {

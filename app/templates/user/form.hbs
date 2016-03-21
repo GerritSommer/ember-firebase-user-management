@@ -1,113 +1,114 @@
-
-<form class="users-form">
-
+<div class="container-fluid">
   <div class="row">
 
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-  <fieldset class="column w25">
-    <legend>Base data</legend>
-    <label>
-      <span class="label">first name:</span>
-      {{validated-input
-        type='text'
-        value=model.firstName
-        placeholder="First name"
-        showErrors=model.showErrors
-        errors=model.computedErrors.firstName
-      }}
-      {{#if model.showErrors}}
-        <small class="errors">
-          {{array-to-sentence model.computedErrors.firstName}}
-        </small>
-      {{/if}}
-    </label>
+          <div class="row form-group">
 
-    <label>
-      <span class="label">last name:</span>
-      {{validated-input
-        type='text'
-        value=model.lastName
-        placeholder="Last name"
-        showErrors=model.showErrors
-        errors=model.computedErrors.lastName
-      }}
+            <div class="col-md-12 center-block">
+              {{gravatar-image
+                email=user.email
+                title=user.fullName
+                defaultImage=model.defaultGravatar
+                class="img-circle img-responsive center-block m-b-1"
+                secure=false
+                size=100
+              }}
 
-      {{#if model.showErrors}}
-        <small class="errors">
-          {{array-to-sentence model.computedErrors.lastName}}
-        </small>
-      {{/if}}
+              <p class="text-center">
+                Upload an image at <a href="https://gravatar.com" target="_blank">Gravatar</a> for the email of this account.
+                It will be automatically used.
+              </p>
+            </div>
 
-    </label>
+          </div>
 
-    <label>
-      <span class="label">email:</span>
-      {{validated-input
-        type='text'
-        value=model.email
-        placeholder="email"
-        showErrors=model.showErrors
-        errors=model.computedErrors.email
-      }}
-      {{#if model.showErrors}}
-        <small class="errors">
-          {{array-to-sentence model.computedErrors.email}}
-        </small>
-      {{/if}}
-    </label>
-  </fieldset>
+            <form class="users-form">
 
-  <fieldset class="column 25">
-    <legend>Password </legend>
-    <label>
-      <span class="label">password:</span>
-      {{validated-input
-        type='text'
-        value=model.password
-        placeholder="password"
-        showErrors=model.showErrors
-        errors=model.computedErrors.password
-        disabled=true
-      }}
-      {{#if model.showErrors}}
-        <small class="errors">
-          {{array-to-sentence model.computedErrors.password}}
-        </small>
-      {{/if}}
-    </label>
+              <div class="form-group row">
 
-    <label>
-      <span class="label">repeat password:</span>
-      {{validated-input
-        type='text'
-        value=model.repeatedPassword
-        placeholder="Repeat password"
-        showErrors=model.showErrors
-        errors=model.computedErrors.repeatedPassword
-        disabled=true
-      }}
-      {{#if model.showErrors}}
-        <small class="errors">
-          {{array-to-sentence model.computedErrors.repeatedPassword}}
-        </small>
-      {{/if}}
-    </label>
-    <small>*disabled for the moment</small>
+                <label class="col-md-6">
+                  first name: <br>
+                  {{input value=model.firstName
+                    type='text'
+                    class="form-control"
+                    placeholder="First name"
+                  }}
+                </label>
 
-  </fieldset>
-</div>
+                <label class="col-md-6">
+                  last name: <br>
+                  {{input value=model.lastName
+                    type='text'
+                    class="form-control"
+                    placeholder="Last name"
+                  }}
+                </label>
 
-  <div class="text-right m-b-1">
-    <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
-      Cancel
-    </button>
-    <button class="blue" {{action 'saveUser' model}} disabled={{model.isSaving}}>
-      {{#if model.isSaving}}
-        <i class="icon-refresh icon-spin"></i>
-      {{else}}
-        Save
-      {{/if}}
-    </button>
-  </div>
+              </div>
 
-</form>
+              <div class="form-group row">
+                <label class="col-md-12">
+                  email: <br>
+                  {{input value=model.email
+                    type='text'
+                    placeholder="email"
+                    class="form-control"
+                  }}
+                </label>
+              </div>
+
+              <div class="row form-group">
+
+                <label class="col-md-6">
+                  password: <br>
+                  {{input value=model.password
+                    type='text'
+                    class="form-control"
+                    placeholder="password"
+                    disabled=true
+                  }}
+                </label>
+
+                <label class="col-md-6">
+                  repeat password: <br>
+                  {{input value=model.repeatedPassword
+                    type='text'
+                    class="form-control"
+                    placeholder="Repeat password"
+
+                    disabled=true
+                  }}
+                </label>
+
+                <div class="col-md-12">
+                  <small>*disabled for the moment</small>
+                </div>
+
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-danger pull-right" {{action 'cancel' model}} disabled={{model.isSaving}}>
+                    Cancel
+                  </button>
+                  <button class="btn btn-success pull-right m-r-1" {{action 'saveUser' model}} disabled={{model.isSaving}}>
+                    {{#if model.isSaving}}
+                      <i class="icon-refresh icon-spin"></i>
+                    {{else}}
+                      Save
+                    {{/if}}
+                  </button>
+                </div>
+              </div>
+
+          </form>
+
+        </div> {{!-- end panel-body --}}
+      </div> {{!-- end panel --}}
+    </div> {{!-- end col-md-12 --}}
+  </div> {{!-- end row --}}
+</div> {{!-- end container --}}

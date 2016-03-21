@@ -1,49 +1,103 @@
-<div class="panel">
-  <div class="body">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
 
-    <form>
-      <label>
-        Title
-        {{input type=text value=model.title}}
-      </label>
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-      <br>
+          <form>
 
-      {{#em-wysiwyg configName="bs" as_html=model.body}}
+            <div class="form-group">
+              <label>
+                Title: <br>
+                {{input value=model.title
+                  type=text
+                  class="form-control"
+                }}
+              </label>
+            </div>
 
-        {{#em-wysiwyg-toolbar}}
-          {{em-wysiwyg-action command="bold" title="Bold (Ctrl/Cmd+B)" icon="fa fa-bold"}}
-          {{em-wysiwyg-action command="italic" title="Italic (Ctrl/Cmd+I)" icon="fa fa-italic"}}
-          {{em-wysiwyg-action-format icon="fa fa-text-height"}}
-          {{em-wysiwyg-action command="justifyleft" title="Align Left (Ctrl/Cmd+L)" icon="fa fa-align-left"}}
-          {{em-wysiwyg-action command="justifyright" title="Align Right (Ctrl/Cmd+R)" icon="fa fa-align-right"}}
-          {{em-wysiwyg-action command="undo" title="Undo(Ctrl/Cmd+Z)" icon="fa fa-undo"}}
-          {{em-wysiwyg-action command="redo" title="Redo (Ctrl/Cmd+Y)" icon="fa fa-repeat"}}
-          {{em-wysiwyg-action-link title="Insert Link" icon="fa fa-link"}}
-        {{/em-wysiwyg-toolbar}}
+            {{#em-wysiwyg configName="bs" as_html=model.body}}
 
-        {{em-wysiwyg-editor}}
+              {{#em-wysiwyg-toolbar class="btn-group"}}
+                {{em-wysiwyg-action
+                  command="bold"
+                  title="Bold (Ctrl/Cmd+B)"
+                  icon="fa fa-bold"
+                  class="btn-btn-default btn-sm"
+                }}
+                {{em-wysiwyg-action
+                  command="italic"
+                  title="Italic (Ctrl/Cmd+I)"
+                  icon="fa fa-italic"
+                  class="btn-btn-default btn-sm"
+                }}
+                {{em-wysiwyg-action-format
+                  icon="fa fa-text-height"
+                  class="btn-btn-default btn-sm"
+                  }}
+                  {{em-wysiwyg-action
+                    command="justifyleft"
+                    title="Align Left (Ctrl/Cmd+L)"
+                    icon="fa fa-align-left"
+                    class="btn-btn-default btn-sm"
+                  }}
+                  {{em-wysiwyg-action
+                    command="justifyright"
+                    title="Align Right (Ctrl/Cmd+R)"
+                    icon="fa fa-align-right"
+                    class="btn-btn-default btn-sm"
+                  }}
+                  {{em-wysiwyg-action
+                    command="undo"
+                    title="Undo(Ctrl/Cmd+Z)"
+                    icon="fa fa-undo"
+                    class="btn-btn-default btn-sm"
+                  }}
+                  {{em-wysiwyg-action
+                    command="redo"
+                    title="Redo (Ctrl/Cmd+Y)"
+                    icon="fa fa-repeat"
+                    class="btn-btn-default btn-sm"
+                  }}
+                {{em-wysiwyg-action-link
+                  title="Insert Link"
+                  icon="fa fa-link"
+                  class="btn-btn-default btn-sm"
+                }}
+              {{/em-wysiwyg-toolbar}}
 
-      <div class="text-right">
+              {{em-wysiwyg-editor}}
 
-        <button class="red" {{action 'cancel' model}} disabled={{model.isSaving}}>
-          Cancel
-        </button>
+              <div class="container-fluid m-t-1">
+                <div class="row">
 
-        <button class="blue" {{action 'save' model}} disabled={{model.isSaving}}>
-          {{#if model.isSaving}}
-            <i class="icon-refresh icon-spin"></i>
-          {{else}}
-            Save
-          {{/if}}
-        </button>
+                  <div class="text-right col-md-12">
 
-      </div>
+                    <button class="btn btn-danger" {{action 'cancel' model}} disabled={{model.isSaving}}>
+                      Cancel
+                    </button>
 
-    {{/em-wysiwyg}}
+                    <button class="btn btn-success" {{action 'save' model}} disabled={{model.isSaving}}>
+                      {{#if model.isSaving}}
+                        <i class="icon-refresh icon-spin"></i>
+                      {{else}}
+                        Save
+                      {{/if}}
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+
+            {{/em-wysiwyg}}
+
+          </form>
+
+        </div> {{!-- end panel --}}
+      </div> {{!-- end panel-body --}}
 
 
-    </form>
-
-  </div>
-</div>
+    </div> {{!-- end col-md-12 --}}
+  </div> {{!-- end row --}}
+</div> {{!-- end container --}}

@@ -4,108 +4,127 @@
 // $heading-font-family:           'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, 'Lucida Grande', sans-serif;
 // $monospace-font-family:         Menlo, Monaco, Consolas, 'Courier New', monospace;
 /*  Fonts  */
-@font-face {
-  font-family: 'raleway-regular';
-  src: url('fonts/raleway-regular.eot');
-  src: url('fonts/raleway-regular.eot?#iefix') format('embedded-opentype'),
-  url('fonts/raleway-regular.woff') format('woff'),
-  url('fonts/raleway-regular.ttf') format('truetype'),
-  url('fonts/raleway-regular.svg#RalewayRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+// @font-face {
+//   font-family: 'raleway-regular';
+//   src: url('fonts/raleway-regular.eot');
+//   src: url('fonts/raleway-regular.eot?#iefix') format('embedded-opentype'),
+//   url('fonts/raleway-regular.woff') format('woff'),
+//   url('fonts/raleway-regular.ttf') format('truetype'),
+//   url('fonts/raleway-regular.svg#RalewayRegular') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
 
+// }
+
+
+// @font-face {
+//   font-family: 'raleway-semibold';
+//   src: url('fonts/raleway-semibold.eot');
+//   src: url('fonts/raleway-semibold.eot?#iefix') format('embedded-opentype'),
+//   url('fonts/raleway-semibold.woff') format('woff'),
+//   url('fonts/raleway-semibold.ttf') format('truetype'),
+//   url('fonts/raleway-semibold.svg#RalewaySemibold') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+a {
+  text-decoration: none;
+  transition: color 200ms linear;
+
+  &disabled:hover {
+    text-decoration: none;
+  }
 }
 
-
-@font-face {
-  font-family: 'raleway-semibold';
-  src: url('fonts/raleway-semibold.eot');
-  src: url('fonts/raleway-semibold.eot?#iefix') format('embedded-opentype'),
-  url('fonts/raleway-semibold.woff') format('woff'),
-  url('fonts/raleway-semibold.ttf') format('truetype'),
-  url('fonts/raleway-semibold.svg#RalewaySemibold') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
+// Bootstrap fixes
+.text-success {
+  color: $brand-success;
 }
 
-h1, h2, h3, h4, h5 ,h6 {
-  color: $middle-grey;
-  font-family: "raleway-regular", arial;
-  letter-spacing: 1px;
-  font-weight: bolder;
-  text-align: center;
+// h1 - h6 styles
+@for $i from 1 through 6 {
+    h#{$i} {
+    color: $gray-base;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    text-align: center;
+  }
 }
 
-h1 {
-  font-size: 2em;
-  margin: .67em 0
+span.label {
+  font-size: .9em;
 }
 
-h2 {
-  font-size: 1.5em;
-  margin: .75em 0
-}
+// h1 {
+//   font-size: 2em;
+//   margin: .67em 0
+// }
 
-h3 {
-  font-size: 1.17em;
-  margin: .83em 0
-}
+// h2 {
+//   font-size: 1.5em;
+//   margin: .75em 0
+// }
 
-h4 {
-  font-size: 1em;
-  margin: .83em 0
-}
+// h3 {
+//   font-size: 1.17em;
+//   margin: .83em 0
+// }
 
-h5 {
-  font-size: .83em;
-  margin: 1.5em 0
-}
+// h4 {
+//   font-size: 1em;
+//   margin: .83em 0
+// }
 
-h6 {
-  font-size: .75em;
-  margin: 1.67em 0
-}
+// h5 {
+//   font-size: .83em;
+//   margin: 1.5em 0
+// }
 
-b {
-  color: #000;
-}
+// h6 {
+//   font-size: .75em;
+//   margin: 1.67em 0
+// }
 
-.grey-text {
-  color: $middle-grey;
-}
+// b {
+//   color: #000;
+// }
 
-.orange-text {
-  color: $orange;
-}
+// .grey-text {
+//   color: $middle-grey;
+// }
 
-.red-text {
-  color: $red;
-}
+// .orange-text {
+//   color: $orange;
+// }
 
-.blue-text {
-  color: $blue;
-}
+// .red-text {
+//   color: $red;
+// }
 
-.green-text {
-  color: $green;
-}
+// .blue-text {
+//   color: $blue;
+// }
 
-small {
-  font-size: 0.8em;
-}
+// .green-text {
+//   color: $green;
+// }
 
-.center-text {
-  text-align: center;
-}
+// small {
+//   font-size: 0.8em;
+// }
 
-.left-text {
-  text-align: left;
-}
+// .center-text {
+//   text-align: center;
+// }
 
-.justify-text {
-  text-align: justify;
-}
-.right-text {
-  text-align: right;
-}
+// .left-text {
+//   text-align: left;
+// }
+
+// .justify-text {
+//   text-align: justify;
+// }
+// .right-text {
+//   text-align: right;
+// }

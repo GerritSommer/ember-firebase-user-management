@@ -15,8 +15,8 @@ export default Controller.extend({
     }
 
     return users.filter(function(user, index, self) {
-      if( user.get('fullName').toLowerCase().indexOf(searchQuery.toLowerCase()) != -1 )
-        return true;
+      return user.get('fullName').toLowerCase().indexOf(searchQuery.toLowerCase()) != -1
     });
   })
+
 });

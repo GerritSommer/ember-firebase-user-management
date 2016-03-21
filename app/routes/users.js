@@ -9,7 +9,7 @@ let saveUserCallback  = function( user ) {
 
   user.save()
     .then((savedUser)=> {
-      this.transitionTo( 'user.index', savedUser );
+      this.transitionTo('users.index');
     })
     .catch(()=> {
       user.set( 'showErrors', true );

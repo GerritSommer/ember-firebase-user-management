@@ -1,51 +1,76 @@
+<div class="container-fluid">
+  <div class="row">
 
-<div class="panel">
+    <div class="col-md-8">
+      <section class="panel panel-default">
+        <article class="panel-body">
 
-  <div class="body">
+          <h3>
+            User management with <a href="emberjs.com" target="_blank">Ember.js</a> and  <a href="firebase.com" target="_blank">Firebase</a>
+          </h3>
+
+          <hr>
+
+          <p>
+            This projects aims to give a seamless experience of user management with firebase. As The authorization access is seperated from the normal backend for security reasons, the user management needs to synchronize between the authorization and the database table.
+          </p>
+
+          <hr>
 
 
-    <article class="three-quarter">
+          <p>
+            <strong>
+              ** This is work on progress. Some features are disabled until they work.
+            </strong>
+          </p>
 
-      <div>
+        </article>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <aside>
         <h3>
-          User management with <a href="emberjs.com" target="_blank">Ember.js</a> and  <a href="firebase.com" target="_blank">firebase</a>
+          Sources and libraries:
         </h3>
+
         <hr>
 
-        <p class="justified">
-          This projects aims to give a seamless experience of user management with firebase. As The authorization access is seperated from the normal backend for security reasons, the user management needs to synchronize between the authorization and the database table.
-        </p>
+        <p class="text-center">
+          Source on <a href="https://github.com/GerritSommer/ember-firebase-user-management" target="_blank">Github</a>
+          <hr>
+          Ember.js: <a href="https://emberjs.com" target="_blank">Emberjs.com</a>
+          <hr>
+          Ember data: <a href="https://github.com/emberjs/data" target="_blank">github.com/emberjs/data</a>
+          <hr>
+          Firebase: <a href="https://firebase.com" target="_blank">firebase.com</a> with <a href="https://github.com/firebase/emberfire" target="_blank">emberfire</a>
+          <hr>
 
-        <p>
-          The source code can be found on <a href="https://github.com/GerritSommer/ember-firebase-user-management" target="_blank">Github</a>
-        </p>
-
-        <p>
-          <strong>
-            ** This is work on progress. Some features are disabled until they work.
-          </strong>
-        </p>
-
-
-      </div>
-
-    </article>
-
-      <aside class="quarter text-center">
-        <p>
-          <h4>TODO:</h4>
-          <ul>
-            <li>- Responsify</li>
-            <li>- Implement password change</li>
-            <li>- Readd user creation</li>
+          <ul class="list-unstyled">
+            <li>
+              Third-party-libraries:
+            </li>
+            <li>
+              <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Fontawesome</a>
+            </li>
+            <li>
+              <a href="https://github.com/alexspeller/ember-cli-active-link-wrapper" target="_blank">Ember cli active link wrapper</a>
+            </li>
+            <li>
+              <a href="https://github.com/johnotander/ember-cli-gravatar" target="_blank">Ember cli gravatar</a>
+            </li>
+            <li>
+              <a href="https://www.npmjs.com/package/ember-computed-validations" target="_blank">Ember computed validations</a>
+            </li>
+            <li>
+              <a href="https://github.com/stefanpenner/ember-moment" target="_blank">Ember moment</a>
+            </li>
           </ul>
-        </p>
-      </aside>
 
+        </p>
+
+      </aside>
+    </div>
 
   </div>
-
-  {{outlet}}
-
 </div>
-

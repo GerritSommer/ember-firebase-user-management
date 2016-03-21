@@ -1,35 +1,36 @@
-<div class="panel">
-  <div class="body">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
 
-    {{#each model as |post|}}
-      <article class="three-quarter">
+      {{#each model as |post|}}
+        <div class="panel panel-default">
+          <article class="panel-body">
 
-        {{#if authentication.isLoggedIn}}
-          {{#link-to 'post.edit' post class="pull-right"}}
-            <small>edit {{fa-icon "pencil" size="1"}}</small>
-          {{/link-to}}
-        {{/if}}
+            {{!-- EDIT BUTTON --}}
+            {{#if authentication.isLoggedIn}}
+              {{#link-to 'post.edit' post class="pull-right"}}
+                <small>edit {{fa-icon "pencil" size="1"}}</small>
+              {{/link-to}}
+            {{/if}}
 
-        <h3>
-          {{#link-to 'post.index' post}}
-            {{post.title}}
-          {{/link-to}}
-        </h3>
-        <hr>
-        <div class="post-body justify-text">
-          {{{post.body}}}
-        </div>
+            {{!-- ARTICLE HEADER --}}
+            <h3>
+              {{#link-to 'post.index' post}}
+                {{post.title}}
+              {{/link-to}}
+            </h3>
 
-      </article>
+            <hr>
 
-    {{/each}}
+            {{!-- POST BODY --}}
+            <div class="justify-text">
+              {{{post.body}}}
+            </div>
 
-    <aside class="quarter">
-      <p>
-        <h4>sidebar</h4>
+          </article> {{!-- end panel-body --}}
+        </div> {{!-- end panel --}}
+      {{/each}}
 
-      </p>
-    </aside>
-
-  </div>
-</div>
+    </div> {{!-- end col-md-12 --}}
+  </div> {{!-- end row --}}
+</div> {{!-- end container --}}

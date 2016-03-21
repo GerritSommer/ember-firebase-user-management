@@ -1,3 +1,10 @@
+[contenteditable=true] {
+  background: #fff;
+  border: 1px solid $input-border;
+  padding: 1em;
+}
+
+
 @mixin placeholder {
   &::-webkit-input-placeholder { @content }
   &:-moz-placeholder           { @content }
@@ -10,134 +17,141 @@ input {
   border-style: solid;
   border-width: 1px;
   border-color: $light-grey;
+  font-weight: 500;
+
   &[disabled] {
     border-color: $light-grey;
   }
-}
 
-form {
-  padding: 1em 0;
-}
-
-fieldset {
-
-  legend {
-    font-weight: bolder;
-    margin-bottom: 1em;
+  @include placeholder {
+    font-weight: 500;
   }
 }
 
-label {
 
-  span.label {
-    width: 10%;
-    min-width: 120px;
-    display: inline-block;
-  }
+// form {
+//   padding: 1em 0;
+// }
 
-  .errors {
-      transition: color 400ms ease-in;
-      color: $red;
-    }
+// fieldset {
 
-  &.invalid input {
-    border: 1px solid $red;
-  }
+//   legend {
+//     font-weight: bolder;
+//     margin-bottom: 1em;
+//   }
+// }
 
-  input {
-    transition: border-color 400ms ease-in, color 400ms ease-in;
-    margin: 5px 0;
-    border-radius: 0;
-    box-sizing: border-box;
-    margin-left: 0.5em;
+// label {
 
-    &:focus {
-      outline: none;;
-    }
+//   span.label {
+//     width: 10%;
+//     min-width: 120px;
+//     display: inline-block;
+//   }
 
-    &.errors {
-      border-color: $red;
-      @include placeholder {
-        color: $red;
-      }
+//   .errors {
+//       transition: color 400ms ease-in;
+//       color: $red;
+//     }
 
-    }
+//   &.invalid input {
+//     border: 1px solid $red;
+//   }
 
-    @include placeholder {
-      transition: color 400ms ease-in;
-      font-weight: light;
-      font-size: 13px;
-      line-height: 1em;
-    }
-  }
-}
+//   input {
+//     transition: border-color 400ms ease-in, color 400ms ease-in;
+//     margin: 5px 0;
+//     border-radius: 0;
+//     box-sizing: border-box;
+//     margin-left: 0.5em;
 
-button {
-  padding: 0.8em;
-  background: #fff;
-  border-radius: 0;
-  border: 1px solid $dark-grey;
-  display: inline-block;
-  padding: 6px 12px;
-  text-align: center;
-  font-size: 13px;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  min-width: 65px;
+//     &:focus {
+//       outline: none;;
+//     }
 
-  & + & {
-    margin-left: 8px;
-  }
+//     &.errors {
+//       border-color: $red;
+//       @include placeholder {
+//         color: $red;
+//       }
 
-  &:last-of-type {
-    margin-right: 8px;
-  }
+//     }
 
-  &.blue {
-    background: $blue;
-    color: #fff;
-    border: 1px solid transparent;
-  }
+//     @include placeholder {
+//       transition: color 400ms ease-in;
+//       font-weight: light;
+//       font-size: 13px;
+//       line-height: 1em;
+//     }
+//   }
+// }
 
-  &.red {
-    background: $red;
-    color: #fff;
-    border: 1px solid transparent;
-  }
-}
+// button {
+//   padding: 0.8em;
+//   background: #fff;
+//   border-radius: 0;
+//   border: 1px solid $dark-grey;
+//   display: inline-block;
+//   padding: 6px 12px;
+//   text-align: center;
+//   font-size: 13px;
+//   white-space: nowrap;
+//   vertical-align: middle;
+//   cursor: pointer;
+//   min-width: 65px;
 
-.well {
-  width: 100%;
-  margin: 1em 0;
-  padding: 1em;
-  background: #f4f4f4;
-  border: 1px solid $light-grey;
+//   & + & {
+//     margin-left: 8px;
+//   }
 
-  .btn-toolbar {
+//   &:last-of-type {
+//     margin-right: 8px;
+//   }
 
-    .btn-default {
-      position: relative;
-      display: inline-block;
-      margin-right: 0.5em;
+//   &.blue {
+//     background: $blue;
+//     color: #fff;
+//     border: 1px solid transparent;
+//   }
 
-      > .dropdown-menu {
-        position: absolute;
-        top: 15px;
-        min-width: 200px;
-        border: 1px solid $light-grey;
-        background: #fff;
-        padding: 1em;
-      }
-    }
-  }
+//   &.red {
+//     background: $red;
+//     color: #fff;
+//     border: 1px solid transparent;
+//   }
+// }
 
-  div[contenteditable=true] {
-    border: 1px solid $light-grey;
-    padding: 0.5em;
-    margin: 0.5em 0;
-    background: #fff;
-    min-height: 200px;
-  }
+// .well {
+//   width: 100%;
+//   margin: 1em 0;
+//   padding: 1em;
+//   background: #f4f4f4;
+//   border: 1px solid $light-grey;
 
-}
+//   .btn-toolbar {
+
+//     .btn-default {
+//       position: relative;
+//       display: inline-block;
+//       margin-right: 0.5em;
+
+//       > .dropdown-menu {
+//         position: absolute;
+//         top: 15px;
+//         min-width: 200px;
+//         border: 1px solid $light-grey;
+//         background: #fff;
+//         padding: 1em;
+//       }
+//     }
+//   }
+
+//   div[contenteditable=true] {
+//     border: 1px solid $light-grey;
+//     padding: 0.5em;
+//     margin: 0.5em 0;
+//     background: #fff;
+//     min-height: 200px;
+//   }
+
+// }

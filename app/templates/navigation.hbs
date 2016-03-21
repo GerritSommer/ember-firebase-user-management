@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar navbar-default navbar-static-top nav__top">
+    <div class="container-fluid">
+
+      <div class="navbar-header nav__top--header">
+        {{#link-to 'index' class="logo navbar-brand nav__top--header--brand"}}
+          sommer
+        {{/link-to}}
+      </div>
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav nav__top--list">
+
+          <li>
+            {{#link-to 'posts' class="nav__top--list--link"}}
+              <i class="fa fa-file-text-o"></i> Posts
+            {{/link-to}}
+          </li>
+
+          {{#if authentication.isLoggedIn}}
+            <li>
+              {{#link-to 'users'}}
+                <i class="fa fa-users"></i> Users
+              {{/link-to}}
+            </li>
+          {{/if}}
+{{!--           <li class="pull-right">
+            {{login-form authentication=authentication action='goToProfile'}}
+          </li> --}}
+
+        </ul>
+
+        <ul class="nav navbar-nav  navbar-right">
+          <li>
+            {{login-form authentication=authentication action='goToProfile'}}
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+</header>

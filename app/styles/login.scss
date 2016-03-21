@@ -2,24 +2,30 @@
   position: relative;
   width: 230px;
   margin-right: 1em;
+  margin-top: 7px;
   text-align: center;
   background: #fff;
 
-  .toggle {
+  a.toggle {
     height: inherit;
     display: inline-block;
+
+    &.active {
+      background: transparent;
+    }
+
 
     img.circle {
       vertical-align: middle;
       border-radius: 50%;
-      border: 2px solid $dark-grey;
+      border: 1px solid $dark-grey;
     }
 
   }
 
   .dropdown {
     position:absolute;
-    top:4.5em;
+    top: 44px;
     margin-top: -1px;
     max-height:0;
     overflow:hidden;
@@ -70,11 +76,13 @@
       }
 
       a {
-        line-height: 1.5em;
+        line-height: 2em;
         border-color: $middle-grey;
 
         &[disabled] {
           color: $middle-grey;
+          cursor: default;
+          text-decoration: none;
         }
 
       }

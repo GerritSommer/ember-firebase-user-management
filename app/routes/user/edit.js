@@ -14,5 +14,19 @@ export default Route.extend({
       user.rollback();
       this.transitionTo('users');
     },
+
+    saveUser(user) {
+      // validate user before taking action
+
+      user.save()
+        .then((savedUser)=> {
+          this.transitionTo( 'users.index');
+        })
+        .catch(()=> {
+          user.set( 'showErrors', true );
+        });
+
+
+    }
   }
 });

@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
 let Controller = Ember.Controller;
+let computed   = Ember.computed
 
 export default Controller.extend({
-  isCurrentUser: Ember.computed('model', 'authentication.currentUser', function() {
+  isCurrentUser: computed('model', 'authentication.currentUser', function() {
     return this.get('model.id') === this.get('authentication.currentUser.id');
   })
 });

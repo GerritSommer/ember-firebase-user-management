@@ -2,19 +2,25 @@
 
 module.exports = function(environment) {
   var ENV = {
+    environment:  environment,
     modulePrefix: 'fire',
-    environment: environment,
+    baseURL:      '/',
+    locationType: 'auto',
+
+    firebase:     'https://scorching-torch-4275.firebaseio.com/',
+    torii:        { sessionServiceName: 'session' },
+
+    googleFonts: [
+      'Raleway:400,300,300italic,400italic,700,600,500',
+    ],
+
     contentSecurityPolicy: {
       'connect-src': "'self' https://scorching-torch-4275.firebaseio.com https://auth.firebase.com wss://*.firebaseio.com https://s-usc1c-nss-149.firebaseio.com",
-      'img-src': "'self' http://www.gravatar.com/",
-      'style-src': "'self' 'unsafe-inline'  localhost:4200"
+      'img-src':     "'self' http://www.gravatar.com/",
+      'style-src':   "'self' 'unsafe-inline'  localhost:4200 fonts.googleapis.com",
+      'font-src':    "'self' fonts.gstatic.com"
     },
-    firebase: 'https://scorching-torch-4275.firebaseio.com/',
-    torii: {
-      sessionServiceName: 'session'
-    },
-    baseURL: '/',
-    locationType: 'auto',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
