@@ -29,9 +29,13 @@
     margin-top: -1px;
     max-height:0;
     overflow:hidden;
-    transform:perspective(400) rotate3d(1,0,0,-90deg);
-    transform-origin:50% 0;
-    transition:350ms;
+    -webkit-transform:perspective(400) rotate3d(1,0,0,-90deg);
+            transform:perspective(400) rotate3d(1,0,0,-90deg);
+    -webkit-transform-origin:50% 0;
+        -ms-transform-origin:50% 0;
+            transform-origin:50% 0;
+    -webkit-transition:350ms;
+            transition:350ms;
     width: 230px;
     background: #fff;
 
